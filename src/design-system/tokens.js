@@ -1,0 +1,61 @@
+/**
+ * Design tokens — single source of truth for all styling constants.
+ * Matches the design system spec in /docs/design-system-spec.md
+ */
+export const tokens = {
+  colors: {
+    primary: "#15141A",
+    primaryLight: "#1E1D24",
+    primaryMuted: "#2A2930",
+    accent: "#C3FF00",
+    accentHover: "#D4FF33",
+    accentDark: "#9ECC00",
+    white: "#FFFFFF",
+    offWhite: "#F5F5F7",
+    grayLight: "#E5E5E7",
+    grayMid: "#8A8A8E",
+    grayDark: "#6B6B6F",
+    textOnDark: "#FFFFFF",
+    textOnDarkMuted: "#A0A0A5",
+    textOnLight: "#15141A",
+    textOnLightMuted: "#6B6B6F",
+    textOnAccent: "#15141A",
+    cardDark: "#1E1D24",
+    cardDarkBorder: "rgba(255,255,255,0.08)",
+    cardLight: "#FFFFFF",
+    cardLightBorder: "rgba(0,0,0,0.08)",
+    reviewOrange: "#E8880A",
+    reviewOrangeLight: "#F5A623",
+    reviewStarEmpty: "#D1D5DB",
+  },
+  typography: {
+    headingFont: "'Plus Jakarta Sans', sans-serif",
+    bodyFont: "'Plus Jakarta Sans', sans-serif",
+    sizes: {
+      displayXL: { size: "64px", lineHeight: "1.05", weight: "800", tracking: "-0.03em" },
+      displayLG: { size: "48px", lineHeight: "1.1", weight: "800", tracking: "-0.025em" },
+      displayMD: { size: "36px", lineHeight: "1.15", weight: "700", tracking: "-0.02em" },
+      headingLG: { size: "28px", lineHeight: "1.2", weight: "700", tracking: "-0.015em" },
+      headingMD: { size: "22px", lineHeight: "1.3", weight: "700", tracking: "-0.01em" },
+      headingSM: { size: "18px", lineHeight: "1.35", weight: "600", tracking: "-0.005em" },
+      bodyLG: { size: "18px", lineHeight: "1.6", weight: "400", tracking: "0" },
+      bodyMD: { size: "16px", lineHeight: "1.6", weight: "400", tracking: "0" },
+      bodySM: { size: "14px", lineHeight: "1.55", weight: "400", tracking: "0.005em" },
+      caption: { size: "12px", lineHeight: "1.5", weight: "500", tracking: "0.02em" },
+      overline: { size: "13px", lineHeight: "1.4", weight: "600", tracking: "0.08em" },
+    },
+  },
+  spacing: {
+    sectionY: "96px",
+    sectionX: "64px",
+    maxWidth: "1200px",
+    cardPadding: "28px",
+    gap: { xs: "8px", sm: "12px", md: "16px", lg: "24px", xl: "32px", xxl: "48px" },
+    borderRadius: { sm: "3px", md: "5px", lg: "5px", xl: "8px", pill: "999px" },
+  },
+  shadows: {
+    cardLight: "0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04)",
+    cardHover: "0 4px 12px rgba(0,0,0,0.08), 0 16px 40px rgba(0,0,0,0.06)",
+    glow: "0 0 24px rgba(195,255,0,0.15)",
+  },
+};
