@@ -164,7 +164,7 @@ export default function HeroSection() {
         position: "relative", zIndex: 50,
       }}>
         <div style={{ fontSize: "24px", fontWeight: 800, letterSpacing: "-0.03em", color: tokens.colors.white }}>
-          playbookz<span style={{ color: tokens.colors.accent }}>.</span>
+          playbook<span style={{ color: tokens.colors.accent }}>z</span>
         </div>
         <div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
           {["Services", "Case Studies", "Contact Us"].map((item) => (
