@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="#6B7280">
+  <!-- D icon with lines -->
+  <g transform="translate(0, 2)">
+    <circle cx="18" cy="18" r="16" fill="none" stroke="#6B7280" stroke-width="3"/>
+    <path d="M12 8v20M12 8h4c6 0 10 4 10 10s-4 10-10 10h-4" fill="none" stroke="#6B7280" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="42" y="27" font-family="'Segoe UI', Arial, sans-serif" font-weight="600" font-size="22" letter-spacing="0.3">dofollow.com</text>
+</svg>

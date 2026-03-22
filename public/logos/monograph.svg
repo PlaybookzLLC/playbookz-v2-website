@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 50" fill="#6B7280">
+  <!-- Circle icon with M bookmark shape -->
+  <circle cx="22" cy="25" r="20" fill="#6B7280"/>
+  <path d="M14 14v22l8-6 8 6V14z" fill="white"/>
+  <text x="50" y="34" font-family="'Segoe UI', Arial, sans-serif" font-weight="600" font-size="28" letter-spacing="-0.5">Monograph</text>
+</svg>

@@ -2,14 +2,14 @@ import { useState } from "react";
 import { tokens } from "../design-system/tokens";
 
 const clientLogos = [
-  { name: "The Outloud Group", src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAAAiCAYAAABEJWH+AAAQ" },
-  { name: "Torchstone", src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJoAAAAcCAYAAACZFqbSAAAU" },
-  { name: "Citation Labs", src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJkAAAAcCAYAAAByIR3RAAA" },
-  { name: "dofollow.com", src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJIAAAAcCAYAAACKweYmAAAY" },
-  { name: "Monograph", src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJUAAAAcCAYAAABoHf1fAAAU" },
-  { name: "Pathways", src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAAASCAYAAACejqbEAAAU" },
-  { name: "Projectworks", src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJwAAAAWCAYAAAA1k/XzAAAT" },
-  { name: "Traefik Labs", src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAAcCAYAAACzpld9AAAb" },
+  { name: "The Outloud Group", src: "/logos/the-outloud-group.svg" },
+  { name: "Torchstone", src: "/logos/torchstone.svg" },
+  { name: "Citation Labs", src: "/logos/citation-labs.svg" },
+  { name: "dofollow.com", src: "/logos/dofollow.svg" },
+  { name: "Monograph", src: "/logos/monograph.svg" },
+  { name: "Pathways", src: "/logos/pathways.svg" },
+  { name: "Projectworks", src: "/logos/projectworks.svg" },
+  { name: "Traefik Labs", src: "/logos/traefik-labs.svg" },
 ];
 
 const CheckIcon = () => (
