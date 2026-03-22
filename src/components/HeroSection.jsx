@@ -366,7 +366,7 @@ export default function HeroSection() {
         background: tokens.colors.white, padding: "52px 0",
         overflow: "hidden", position: "relative", zIndex: 10,
       }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 64px", marginBottom: "40px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 64px", marginBottom: "60px" }}>
           <p style={{
             fontSize: tokens.typography.sizes.displayMD.size, fontWeight: tokens.typography.sizes.displayMD.weight, lineHeight: tokens.typography.sizes.displayMD.lineHeight,
             letterSpacing: tokens.typography.sizes.displayMD.tracking, color: "#1E1D24",
