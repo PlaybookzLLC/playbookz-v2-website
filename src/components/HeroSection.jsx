@@ -366,13 +366,6 @@ export default function HeroSection() {
         background: tokens.colors.white, padding: "52px 0",
         overflow: "hidden", position: "relative", zIndex: 10,
       }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 64px", marginBottom: "60px" }}>
-          <p style={{
-            fontSize: tokens.typography.sizes.headingLG.size, fontWeight: tokens.typography.sizes.headingLG.weight, lineHeight: tokens.typography.sizes.headingLG.lineHeight,
-            letterSpacing: tokens.typography.sizes.headingLG.tracking, color: "#1E1D24",
-            textAlign: "center", margin: 0,
-          }}>Trusted by founders at</p>
-        </div>
         <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
           <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, width: "120px", background: `linear-gradient(to right, ${tokens.colors.white}, transparent)`, zIndex: 2, pointerEvents: "none" }} />
           <div style={{ position: "absolute", top: 0, right: 0, bottom: 0, width: "120px", background: `linear-gradient(to left, ${tokens.colors.white}, transparent)`, zIndex: 2, pointerEvents: "none" }} />
