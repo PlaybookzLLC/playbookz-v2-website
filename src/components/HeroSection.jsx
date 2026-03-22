@@ -369,7 +369,7 @@ export default function HeroSection() {
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 64px", marginBottom: "40px" }}>
           <p style={{
             fontSize: tokens.typography.sizes.displayMD.size, fontWeight: tokens.typography.sizes.displayMD.weight, lineHeight: tokens.typography.sizes.displayMD.lineHeight,
-            letterSpacing: tokens.typography.sizes.displayMD.tracking, color: tokens.colors.grayDark,
+            letterSpacing: tokens.typography.sizes.displayMD.tracking, color: "#1E1D24",
             textAlign: "center", margin: 0,
           }}>Trusted by founders at</p>
         </div>
