@@ -366,10 +366,10 @@ export default function HeroSection() {
         background: tokens.colors.white, padding: "52px 0",
         overflow: "hidden", position: "relative", zIndex: 10,
       }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 64px", marginBottom: "30px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 64px", marginBottom: "40px" }}>
           <p style={{
-            fontSize: "22px", fontWeight: 700, lineHeight: 1.3,
-            letterSpacing: "-0.01em", color: tokens.colors.grayDark,
+            fontSize: tokens.typography.displayMD.size, fontWeight: tokens.typography.displayMD.weight, lineHeight: tokens.typography.displayMD.lineHeight,
+            letterSpacing: tokens.typography.displayMD.tracking, color: tokens.colors.grayDark,
             textAlign: "center", margin: 0,
           }}>Trusted by founders at</p>
         </div>
