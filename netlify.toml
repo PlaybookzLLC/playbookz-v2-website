@@ -1,3 +1,17 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+# Disable all post-processing that might serve stale content
+[build.processing]
+  skip_processing = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
