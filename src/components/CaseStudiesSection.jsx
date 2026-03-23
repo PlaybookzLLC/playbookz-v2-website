@@ -446,7 +446,7 @@ export default function CaseStudiesSection() {
               fontFamily: tokens.typography.headingFont,
             }}
           >
-            Proven results for founders
+            Proven results for founders v2
           </h2>
           <p
             style={{
