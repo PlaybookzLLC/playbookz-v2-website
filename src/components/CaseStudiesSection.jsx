@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { tokens } from "../design-system/tokens";
 
 const caseStudies = [
@@ -64,12 +64,15 @@ const caseStudies = [
   },
 ];
 
-const BookIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 7V21" stroke="#64748B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M3 18C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V17C22 17.2652 21.8946 17.5196 21.7071 17.7071C21.5196 17.8946 21.2652 18 21 18H15C14.2044 18 13.4413 18.3161 12.8787 18.8787C12.3161 19.4413 12 20.2044 12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3Z" stroke="#64748B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+const BookIcon = ({ hovered } = {}) => {
+  const strokeColor = hovered ? "#A0A0A5" : "#64748B";
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ transition: "all 0.3s ease" }}>
+      <path d="M12 7V21" stroke={strokeColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 18C2.73478 18 2.48043 17.8946 2.29289 17.7071C2.10536 17.5196 2 17.2652 2 17V4C2 3.73478 2.10536 3.48043 2.29289 3.29289C2.48043 3.10536 2.73478 3 3 3H8C9.06087 3 10.0783 3.42143 10.8284 4.17157C11.5786 4.92172 12 5.93913 12 7C12 5.93913 12.4214 4.92172 13.1716 4.17157C13.9217 3.42143 14.9391 3 16 3H21C21.2652 3 21.5196 3.10536 21.7071 3.29289C21.8946 3.48043 22 3.73478 22 4V17C22 17.2652 21.8946 17.5196 21.7071 17.7071C21.5196 17.8946 21.2652 18 21 18H15C14.2044 18 13.4413 18.3161 12.8787 18.8787C12.3161 19.4413 12 20.2044 12 21C12 20.2044 11.6839 19.4413 11.1213 18.8787C10.5587 18.3161 9.79565 18 9 18H3Z" stroke={strokeColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+};
 
 const ArrowLeft = () => (
   <svg width="25" height="17" viewBox="0 0 25 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -271,16 +274,16 @@ function CaseStudyCard({ study, onClick }) {
       style={{
         flexShrink: 0,
         width: "407px",
-        background: tokens.colors.white,
+        background: hovered ? tokens.colors.primary : tokens.colors.white,
         borderRadius: "8px",
-        border: "1px solid #E2E8F0",
-        borderLeft: `4px solid ${tokens.colors.primary}`,
+        border: hovered ? `1px solid ${tokens.colors.primaryMuted}` : "1px solid #E2E8F0",
+        borderLeft: hovered ? `4px solid ${tokens.colors.primaryMuted}` : "4px solid #CBD5E1",
         cursor: "pointer",
-        transition: "box-shadow 0.2s ease, transform 0.2s ease",
+        transition: "all 0.3s ease",
         boxShadow: hovered
-          ? "0 4px 12px rgba(0,0,0,0.08), 0 16px 40px rgba(0,0,0,0.06)"
+          ? "0 8px 24px rgba(0,0,0,0.15), 0 16px 40px rgba(0,0,0,0.1)"
           : "0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.02)",
-        transform: hovered ? "translateY(-2px)" : "none",
+        transform: hovered ? "rotate(-1deg) translateY(-4px)" : "none",
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
@@ -292,12 +295,13 @@ function CaseStudyCard({ study, onClick }) {
           style={{
             width: "100%",
             height: "200px",
-            background: "#F8FAFC",
+            background: hovered ? tokens.colors.primaryLight : "#F8FAFC",
             borderRadius: "6px",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             overflow: "hidden",
+            transition: "background 0.3s ease",
           }}
         >
           {study.screenshot ? (
@@ -307,9 +311,9 @@ function CaseStudyCard({ study, onClick }) {
               style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "6px" }}
             />
           ) : (
-            <div style={{ textAlign: "center", color: "#CBD5E1" }}>
+            <div style={{ textAlign: "center", color: hovered ? "#4A4A50" : "#CBD5E1", transition: "color 0.3s ease" }}>
               <ImagePlaceholder size={36} />
-              <p style={{ fontSize: "12px", marginTop: "6px", fontWeight: 500, color: "#94A3B8" }}>
+              <p style={{ fontSize: "12px", marginTop: "6px", fontWeight: 500, color: hovered ? "#6B6B6F" : "#94A3B8", transition: "color 0.3s ease" }}>
                 Screenshot
               </p>
             </div>
@@ -321,8 +325,8 @@ function CaseStudyCard({ study, onClick }) {
       <div style={{ padding: "20px 24px 24px", display: "flex", flexDirection: "column", flex: 1 }}>
         {/* Tag row — plain text with icon, matching reference style */}
         <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "12px" }}>
-          <BookIcon />
-          <p style={{ fontSize: "14px", fontWeight: 400, color: "#64748B", margin: 0 }}>
+          <BookIcon hovered={hovered} />
+          <p style={{ fontSize: "14px", fontWeight: 400, color: hovered ? tokens.colors.textOnDarkMuted : "#64748B", margin: 0, transition: "color 0.3s ease" }}>
             Case Study
           </p>
         </div>
@@ -334,9 +338,10 @@ function CaseStudyCard({ study, onClick }) {
             fontWeight: 700,
             lineHeight: 1.35,
             letterSpacing: "-0.01em",
-            color: tokens.colors.textOnLight,
+            color: hovered ? tokens.colors.textOnDark : tokens.colors.textOnLight,
             margin: "0 0 8px 0",
             fontFamily: tokens.typography.headingFont,
+            transition: "color 0.3s ease",
           }}
         >
           {study.title}
@@ -347,10 +352,11 @@ function CaseStudyCard({ study, onClick }) {
           style={{
             fontSize: "14px",
             lineHeight: 1.6,
-            color: "#64748B",
+            color: hovered ? tokens.colors.textOnDarkMuted : "#64748B",
             margin: "0",
             fontFamily: tokens.typography.bodyFont,
             flex: 1,
+            transition: "color 0.3s ease",
           }}
         >
           {study.description}
@@ -358,7 +364,7 @@ function CaseStudyCard({ study, onClick }) {
 
         {/* Divider + bottom stats row */}
         <div>
-          <hr style={{ border: "none", borderTop: "1px solid #E2E8F0", margin: "16px 0 12px" }} />
+          <hr style={{ border: "none", borderTop: hovered ? "1px solid rgba(255,255,255,0.1)" : "1px solid #E2E8F0", margin: "16px 0 12px", transition: "border-color 0.3s ease" }} />
           <div
             style={{
               display: "flex",
@@ -371,19 +377,20 @@ function CaseStudyCard({ study, onClick }) {
                 style={{
                   fontSize: "14px",
                   fontWeight: 700,
-                  color: tokens.colors.textOnLight,
+                  color: hovered ? tokens.colors.textOnDark : tokens.colors.textOnLight,
                   letterSpacing: "-0.01em",
                   fontFamily: tokens.typography.bodyFont,
                   lineHeight: 1.4,
+                  transition: "color 0.3s ease",
                 }}
               >
                 {study.stat}
               </span>
-              <span style={{ fontSize: "14px", fontWeight: 400, color: "#64748B", fontFamily: tokens.typography.bodyFont }}>
+              <span style={{ fontSize: "14px", fontWeight: 400, color: hovered ? tokens.colors.textOnDarkMuted : "#64748B", fontFamily: tokens.typography.bodyFont, transition: "color 0.3s ease" }}>
                 {study.statLabel}
               </span>
             </div>
-            <span style={{ fontSize: "14px", fontWeight: 400, color: "#64748B", fontFamily: tokens.typography.bodyFont }}>
+            <span style={{ fontSize: "14px", fontWeight: 400, color: hovered ? tokens.colors.textOnDarkMuted : "#64748B", fontFamily: tokens.typography.bodyFont, transition: "color 0.3s ease" }}>
               {study.category}
             </span>
           </div>
@@ -396,10 +403,42 @@ function CaseStudyCard({ study, onClick }) {
 export default function CaseStudiesSection() {
   const [activeModal, setActiveModal] = useState(null);
   const scrollRef = useRef(null);
+  const isResetting = useRef(false);
+
+  // Triple the cards for infinite illusion
+  const tripled = [...caseStudies, ...caseStudies, ...caseStudies];
+  const cardWidth = 407 + 26; // card width + gap
+
+  // On mount, scroll to the middle set so we can scroll both directions
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = caseStudies.length * cardWidth;
+    }
+  }, []);
+
+  // When scroll reaches near edges, jump to the middle set
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el || isResetting.current) return;
+    const oneSetWidth = caseStudies.length * cardWidth;
+    if (el.scrollLeft < oneSetWidth * 0.25) {
+      isResetting.current = true;
+      el.style.scrollBehavior = "auto";
+      el.scrollLeft += oneSetWidth;
+      el.style.scrollBehavior = "";
+      isResetting.current = false;
+    } else if (el.scrollLeft > oneSetWidth * 1.75) {
+      isResetting.current = true;
+      el.style.scrollBehavior = "auto";
+      el.scrollLeft -= oneSetWidth;
+      el.style.scrollBehavior = "";
+      isResetting.current = false;
+    }
+  }, []);
 
   const scroll = (direction) => {
     if (!scrollRef.current) return;
-    const amount = 433;
+    const amount = cardWidth;
     scrollRef.current.scrollBy({
       left: direction === "right" ? amount : -amount,
       behavior: "smooth",
@@ -520,18 +559,18 @@ export default function CaseStudiesSection() {
           <div
             ref={scrollRef}
             className="cs-scroll-track"
+            onScroll={handleScroll}
             style={{
               display: "flex",
               alignItems: "stretch",
               gap: "26px",
               overflowX: "auto",
               padding: "4px 0",
-              scrollSnapType: "x mandatory",
               borderRadius: "8px",
             }}
           >
-            {caseStudies.map((study) => (
-              <div key={study.id} style={{ scrollSnapAlign: "start", display: "flex" }}>
+            {tripled.map((study, i) => (
+              <div key={`${study.id}-${i}`} style={{ display: "flex" }}>
                 <CaseStudyCard study={study} onClick={setActiveModal} />
               </div>
             ))}
