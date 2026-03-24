@@ -450,7 +450,7 @@ export default function CaseStudiesSection() {
       style={{
         fontFamily: tokens.typography.bodyFont,
         background: tokens.colors.white,
-        padding: `0`,
+        padding: `80px 0 0 0`,
         position: "relative",
       }}
     >
