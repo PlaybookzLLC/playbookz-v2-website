@@ -266,7 +266,7 @@ export default function HowItWorksSection() {
         transform: "translateY(-50%)",
       }} />
       <div className="hiw-inner" style={{
-        maxWidth: "1200px",
+        maxWidth: "1280px",
         margin: "0 auto",
         padding: "96px 64px",
         position: "relative",
