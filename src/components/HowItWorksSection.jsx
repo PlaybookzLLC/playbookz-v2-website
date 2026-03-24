@@ -204,8 +204,8 @@ function VideoCard({ onPlay }) {
 function CheckBadge() {
   return (
     <svg
-      width="34"
-      height="32"
+      width="28"
+      height="26"
       viewBox="0 0 29 27"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -262,16 +262,16 @@ export default function HowItWorksSection() {
       <style>{`
         .hiw-grid {
           display: flex;
-          gap: 64px;
+          gap: 72px;
           align-items: center;
         }
-        .hiw-col-left { flex: 1; min-width: 0; }
+        .hiw-col-left { flex: 0 0 44%; min-width: 0; }
         .hiw-col-right { flex: 1; min-width: 0; }
         .hiw-features-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          column-gap: 48px;
-          row-gap: 52px;
+          column-gap: 40px;
+          row-gap: 44px;
         }
         @keyframes hiwModalFadeIn {
           from { opacity: 0; } to { opacity: 1; }
@@ -352,18 +352,18 @@ export default function HowItWorksSection() {
             <div className="hiw-features-grid">
               {features.map((f) => (
                 <div key={f.id}>
-                  <div style={{ marginBottom: "16px" }}>
+                  <div style={{ marginBottom: "10px" }}>
                     <CheckBadge />
                   </div>
                   <h3
                     style={{
                       fontFamily: tokens.typography.headingFont,
-                      fontSize: t.headingLG.size,
-                      fontWeight: t.headingLG.weight,
-                      lineHeight: t.headingLG.lineHeight,
-                      letterSpacing: t.headingLG.tracking,
+                      fontSize: t.headingSM.size,
+                      fontWeight: t.headingSM.weight,
+                      lineHeight: t.headingSM.lineHeight,
+                      letterSpacing: t.headingSM.tracking,
                       color: tokens.colors.textOnDark,
-                      margin: "0 0 10px",
+                      margin: "0 0 6px",
                     }}
                   >
                     {f.title}
@@ -371,8 +371,8 @@ export default function HowItWorksSection() {
                   <p
                     style={{
                       fontFamily: tokens.typography.bodyFont,
-                      fontSize: t.bodyMD.size,
-                      lineHeight: t.bodyMD.lineHeight,
+                      fontSize: t.bodySM.size,
+                      lineHeight: t.bodySM.lineHeight,
                       color: tokens.colors.textOnDarkMuted,
                       margin: 0,
                     }}
