@@ -274,7 +274,7 @@ function CaseStudyCard({ study, onClick }) {
         background: tokens.colors.white,
         borderRadius: "8px",
         border: "1px solid #E2E8F0",
-        borderLeft: `4px solid ${tokens.colors.accent}`,
+        borderLeft: `4px solid ${tokens.colors.primary}`,
         cursor: "pointer",
         transition: "box-shadow 0.2s ease, transform 0.2s ease",
         boxShadow: hovered
@@ -291,7 +291,7 @@ function CaseStudyCard({ study, onClick }) {
         <div
           style={{
             width: "100%",
-            height: "160px",
+            height: "200px",
             background: "#F8FAFC",
             borderRadius: "6px",
             display: "flex",
@@ -369,21 +369,21 @@ function CaseStudyCard({ study, onClick }) {
             <div style={{ display: "flex", alignItems: "baseline", gap: "6px" }}>
               <span
                 style={{
-                  fontSize: "22px",
-                  fontWeight: 800,
+                  fontSize: "14px",
+                  fontWeight: 700,
                   color: tokens.colors.textOnLight,
-                  letterSpacing: "-0.02em",
-                  fontFamily: tokens.typography.headingFont,
-                  lineHeight: 1,
+                  letterSpacing: "-0.01em",
+                  fontFamily: tokens.typography.bodyFont,
+                  lineHeight: 1.4,
                 }}
               >
                 {study.stat}
               </span>
-              <span style={{ fontSize: "13px", fontWeight: 400, color: "#94A3B8" }}>
+              <span style={{ fontSize: "14px", fontWeight: 400, color: "#64748B", fontFamily: tokens.typography.bodyFont }}>
                 {study.statLabel}
               </span>
             </div>
-            <span style={{ fontSize: "13px", fontWeight: 400, color: "#94A3B8" }}>
+            <span style={{ fontSize: "14px", fontWeight: 400, color: "#64748B", fontFamily: tokens.typography.bodyFont }}>
               {study.category}
             </span>
           </div>
@@ -411,7 +411,7 @@ export default function CaseStudiesSection() {
       style={{
         fontFamily: tokens.typography.bodyFont,
         background: tokens.colors.white,
-        padding: `${tokens.spacing.sectionY} 0`,
+        padding: `76px 0 ${tokens.spacing.sectionY}`,
         position: "relative",
       }}
     >
@@ -446,7 +446,7 @@ export default function CaseStudiesSection() {
               fontFamily: tokens.typography.headingFont,
             }}
           >
-            Proven results for founders v2
+            Some of our results
           </h2>
           <p
             style={{
@@ -522,6 +522,7 @@ export default function CaseStudiesSection() {
             className="cs-scroll-track"
             style={{
               display: "flex",
+              alignItems: "stretch",
               gap: "26px",
               overflowX: "auto",
               padding: "4px 0",
@@ -530,7 +531,7 @@ export default function CaseStudiesSection() {
             }}
           >
             {caseStudies.map((study) => (
-              <div key={study.id} style={{ scrollSnapAlign: "start" }}>
+              <div key={study.id} style={{ scrollSnapAlign: "start", display: "flex" }}>
                 <CaseStudyCard study={study} onClick={setActiveModal} />
               </div>
             ))}
