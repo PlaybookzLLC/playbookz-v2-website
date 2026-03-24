@@ -151,19 +151,21 @@ function VideoCard() {
       {/* Video preview area */}
       <div style={{
         position: "relative",
-        background: `linear-gradient(135deg, ${tokens.colors.primaryMuted} 0%, ${tokens.colors.primary} 100%)`,
+        background: tokens.colors.primary,
         flex: 1,
         minHeight: "280px",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
       }}>
-        {/* Decorative grid lines */}
+        {/* Thumbnail image */}
         <div style={{
           position: "absolute",
           inset: 0,
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)`,
-          backgroundSize: "32px 32px",
+          backgroundImage: "url(/dofollow-testimonial-thumbnail.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.8,
           pointerEvents: "none",
         }} />
         {/* Play button */}
