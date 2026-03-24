@@ -311,7 +311,7 @@ export default function BenefitsSection() {
         .benefits-fade-2 { animation: fadeInUp 0.6s ease both; animation-delay: 0.15s; }
         @media (max-width: 639px) {
           .benefits-section-inner { padding: 64px 24px !important; }
-          .benefits-heading { font-size: 32px !important; }
+          .benefits-heading { font-size: 28px !important; }
           .guarantee-heading { font-size: 28px !important; }
           .guarantee-card { padding: 32px 24px !important; }
           .guarantee-inner { flex-direction: column !important; gap: 24px !important; }
@@ -326,14 +326,16 @@ export default function BenefitsSection() {
         {/* ─── Heading ─── */}
         <div className="benefits-fade-1" style={{ marginBottom: "40px", textAlign: "center" }}>
           <h2 className="benefits-heading" style={{
-            fontSize: "48px", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em",
+            fontSize: "36px", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.02em",
             color: tokens.colors.textOnLight, margin: "0 auto", maxWidth: "700px",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
           }}>
             The Difference a Personal Brand Makes
           </h2>
           <p style={{
-            fontSize: "16px", lineHeight: 1.6, color: tokens.colors.textOnLightMuted,
-            marginTop: "16px", maxWidth: "480px", margin: "16px auto 0",
+            fontSize: "16px", lineHeight: 1.6, color: "#64748B",
+            maxWidth: "480px", margin: "16px auto 0",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
           }}>
             Drag the slider to see the before and after.
           </p>
