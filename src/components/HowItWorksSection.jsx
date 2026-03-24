@@ -262,7 +262,7 @@ export default function HowItWorksSection() {
       <style>{`
         .hiw-grid {
           display: flex;
-          gap: 72px;
+          gap: 92px;
           align-items: center;
         }
         .hiw-col-left { flex: 0 0 44%; min-width: 0; }
