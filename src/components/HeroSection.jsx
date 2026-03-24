@@ -118,7 +118,7 @@ export default function HeroSection() {
       fontFamily: "'Plus Jakarta Sans', sans-serif",
       background: tokens.colors.primary,
       color: tokens.colors.textOnDark,
-      minHeight: "100vh",
+      minHeight: "0",
       position: "relative",
       overflow: "hidden",
     }}>
