@@ -3,6 +3,7 @@ import CaseStudiesSection from './components/CaseStudiesSection'
 import TestimonialsSection from './components/TestimonialsSection'
 import HowItWorksSection from './components/HowItWorksSection'
 import BenefitsSection from './components/BenefitsSection'
+import PricingSection from './components/PricingSection'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <TestimonialsSection />
       <HowItWorksSection />
       <BenefitsSection />
+      <PricingSection />
     </>
   )
 }
