@@ -246,7 +246,7 @@ export default function HowItWorksSection() {
         .hiw-fade-3 { animation: fadeInUp 0.6s ease both; animation-delay: 0.3s; }
         @media (max-width: 1023px) {
           .hiw-grid { flex-direction: column !important; }
-          .hiw-steps, .hiw-video { max-width: 100% !important; }
+          .hiw-steps, .hiw-video { flex: 1 1 100% !important; }
         }
         @media (max-width: 639px) {
           .hiw-inner { padding: 64px 24px !important; }
@@ -311,8 +311,7 @@ export default function HowItWorksSection() {
         }}>
           {/* Left: Steps */}
           <div className="hiw-steps" style={{
-            flex: "1 1 50%",
-            maxWidth: "50%",
+            flex: "2 1 0%",
           }}>
             {steps.map((step, i) => (
               <StepItem
@@ -330,8 +329,7 @@ export default function HowItWorksSection() {
           </div>
           {/* Right: Video */}
           <div className="hiw-fade-3 hiw-video" style={{
-            flex: "1 1 50%",
-            maxWidth: "50%",
+            flex: "1 1 0%",
             display: "flex",
           }}>
             <VideoCard />
