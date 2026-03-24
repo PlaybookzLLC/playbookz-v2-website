@@ -534,7 +534,7 @@ export default function TestimonialsSection() {
           .stat-block { min-width: 140px !important; }
         }
         @media (max-width: 639px) {
-          .testimonial-section-inner { padding: 0 24px 64px !important; }
+          .testimonial-section-inner { padding: 64px 24px !important; }
           .stats-visual-row { flex-direction: column !important; gap: 32px !important; }
           .section-heading { font-size: 32px !important; }
           .dark-banner-inner { padding: 32px 24px 36px !important; }
@@ -544,7 +544,7 @@ export default function TestimonialsSection() {
       <div className="testimonial-section-inner" style={{
         maxWidth: "1200px",
         margin: "0 auto",
-        padding: "0 64px 96px",
+        padding: "96px 64px",
       }}>
         {/* --- Dark Hero Banner --- */}
         <div className="testimonial-fade-1" style={{
