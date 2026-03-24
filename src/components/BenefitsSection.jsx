@@ -478,7 +478,7 @@ export default function BenefitsSection() {
           })}
         </div>
         {/* ─── Guarantee Card ─── */}
-        <div className="benefits-fade-2">
+        <div className="benefits-fade-2" style={{ position: "relative", paddingBottom: "24px" }}>
           <div className="guarantee-card guarantee-inner" style={{
             background: tokens.colors.primary,
             borderRadius: "5px",
@@ -522,6 +522,31 @@ export default function BenefitsSection() {
                 20k reach in your first 30 days or your money back. 100k reach in 6 months or we work for free until we hit it. Simple as that.
               </p>
             </div>
+          </div>
+          {/* Trust strip — overlaid on bottom edge of guarantee card */}
+          <div style={{
+            position: "absolute",
+            bottom: "4px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "#FFFFFF",
+            borderRadius: "999px",
+            padding: "10px 28px",
+            display: "flex",
+            alignItems: "center",
+            gap: "16px",
+            boxShadow: "0 2px 12px rgba(0,0,0,0.1)",
+            whiteSpace: "nowrap",
+            zIndex: 5,
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+          }}>
+            <span style={{ fontSize: "13px", fontWeight: 700, color: "#15141A" }}>Rated 4.9/5</span>
+            <div style={{ display: "flex", gap: "2px" }}>
+              {[1,2,3,4,5].map(i => (
+                <span key={i} style={{ fontSize: "14px", color: "#E8880A", lineHeight: 1 }}>★</span>
+              ))}
+            </div>
+            <span style={{ fontSize: "13px", color: "#6B6B6F" }}>Trusted by <span style={{ fontWeight: 700, color: "#15141A" }}>100+ founders</span></span>
           </div>
         </div>
       </div>
