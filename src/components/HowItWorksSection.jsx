@@ -88,8 +88,8 @@ function LoomModal({ open, onClose }) {
   );
 }
 
-/* ── video thumbnail with play button overlay ── */
-function VideoThumbnail({ onPlay }) {
+/* ── video card (matches testimonials VideoCard style) ── */
+function VideoCard({ onPlay }) {
   const [hovered, setHovered] = useState(false);
   return (
     <div
@@ -97,58 +97,104 @@ function VideoThumbnail({ onPlay }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
-        position: "relative",
-        borderRadius: tokens.spacing.borderRadius.lg,
-        overflow: "hidden",
+        borderRadius: "5px",
+        padding: "32px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        height: "100%",
+        boxSizing: "border-box",
         cursor: "pointer",
-        aspectRatio: "16 / 9",
-        border: `1px solid ${tokens.colors.accent}`,
+        transition: "all 0.2s ease",
+        transform: hovered ? "translateY(-2px)" : "none",
+        boxShadow: hovered ? tokens.shadows.cardHover : tokens.shadows.cardLight,
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      {/* Loom thumbnail image */}
-      <img
-        src="https://cdn.loom.com/sessions/thumbnails/7cd848c6627443b2bd020934b983284d-ec535a78fce0a498-full-play.gif"
-        alt="How it works video thumbnail"
-        style={{
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          display: "block",
-        }}
-      />
+      {/* Thumbnail background image */}
+      <div style={{
+        position: "absolute",
+        inset: 0,
+        backgroundImage: "url(/dofollow-testimonial-thumbnail.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        zIndex: 0,
+      }} />
+      {/* Fallback gradient */}
+      <div style={{
+        position: "absolute",
+        inset: 0,
+        background: `linear-gradient(135deg, ${tokens.colors.primaryMuted} 0%, ${tokens.colors.primary} 100%)`,
+        zIndex: -1,
+      }} />
       {/* Dark overlay */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "rgba(0,0,0,0.45)",
-          transition: "background 0.2s ease",
-          ...(hovered ? { background: "rgba(0,0,0,0.30)" } : {}),
-        }}
-      />
+      <div style={{
+        position: "absolute",
+        inset: 0,
+        background: "rgba(0,0,0,0.70)",
+        zIndex: 1,
+      }} />
       {/* Play button */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: hovered
-            ? "translate(-50%, -50%) scale(1.08)"
-            : "translate(-50%, -50%) scale(1)",
-          width: "64px",
-          height: "64px",
-          borderRadius: "50%",
-          background: tokens.colors.accent,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          transition: "transform 0.2s ease",
-          zIndex: 2,
-        }}
-      >
+      <div style={{
+        width: "64px",
+        height: "64px",
+        borderRadius: "50%",
+        background: tokens.colors.accent,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        transition: "transform 0.2s ease",
+        transform: hovered ? "scale(1.05)" : "scale(1)",
+        flexShrink: 0,
+        position: "relative",
+        zIndex: 2,
+      }}>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M8 5.5L19 12L8 18.5V5.5Z" fill={tokens.colors.primary} />
         </svg>
+      </div>
+      {/* Content */}
+      <div style={{ marginTop: "auto", position: "relative", zIndex: 2 }}>
+        <div style={{
+          fontSize: "13px",
+          fontWeight: 600,
+          textTransform: "uppercase",
+          letterSpacing: "0.08em",
+          color: tokens.colors.accent,
+          marginBottom: "10px",
+        }}>Watch the Walkthrough</div>
+        <div style={{
+          fontSize: "20px",
+          fontWeight: 700,
+          color: tokens.colors.white,
+          lineHeight: 1.3,
+          letterSpacing: "-0.01em",
+          marginBottom: "12px",
+        }}>&ldquo;See exactly how we deliver results for your business in under 3 minutes.&rdquo;</div>
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "12px",
+        }}>
+          <div style={{
+            width: "36px",
+            height: "36px",
+            borderRadius: "50%",
+            background: tokens.colors.primaryMuted,
+            border: "2px solid rgba(255,255,255,0.1)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "14px",
+            fontWeight: 700,
+            color: tokens.colors.accent,
+          }}>PB</div>
+          <div>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: tokens.colors.white }}>Playbookz Team</div>
+            <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>Product Walkthrough</div>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -296,7 +342,7 @@ export default function HowItWorksSection() {
         <div className="hiw-grid">
           {/* left: video thumbnail with play button */}
           <div className="hiw-col-left">
-            <VideoThumbnail onPlay={() => setLoomOpen(true)} />
+            <VideoCard onPlay={() => setLoomOpen(true)} />
           </div>
 
           {/* right: 2x2 feature grid */}
