@@ -262,7 +262,7 @@ export default function HowItWorksSection() {
       <style>{`
         .hiw-grid {
           display: flex;
-          gap: 48px;
+          gap: 64px;
           align-items: center;
         }
         .hiw-col-left { flex: 1; min-width: 0; }
@@ -270,7 +270,8 @@ export default function HowItWorksSection() {
         .hiw-features-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 40px;
+          column-gap: 48px;
+          row-gap: 52px;
         }
         @keyframes hiwModalFadeIn {
           from { opacity: 0; } to { opacity: 1; }
@@ -287,7 +288,8 @@ export default function HowItWorksSection() {
           }
           .hiw-features-grid {
             grid-template-columns: 1fr 1fr;
-            gap: 28px;
+            column-gap: 32px;
+            row-gap: 36px;
           }
         }
         @media (max-width: 580px) {
@@ -350,18 +352,18 @@ export default function HowItWorksSection() {
             <div className="hiw-features-grid">
               {features.map((f) => (
                 <div key={f.id}>
-                  <div style={{ marginBottom: "12px" }}>
+                  <div style={{ marginBottom: "16px" }}>
                     <CheckBadge />
                   </div>
                   <h3
                     style={{
                       fontFamily: tokens.typography.headingFont,
-                      fontSize: t.headingMD.size,
-                      fontWeight: t.headingMD.weight,
-                      lineHeight: t.headingMD.lineHeight,
-                      letterSpacing: t.headingMD.tracking,
+                      fontSize: t.headingLG.size,
+                      fontWeight: t.headingLG.weight,
+                      lineHeight: t.headingLG.lineHeight,
+                      letterSpacing: t.headingLG.tracking,
                       color: tokens.colors.textOnDark,
-                      margin: "0 0 8px",
+                      margin: "0 0 10px",
                     }}
                   >
                     {f.title}
