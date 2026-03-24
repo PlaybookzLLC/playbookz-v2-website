@@ -52,7 +52,7 @@ export default function Footer() {
               color: tokens.colors.white,
               marginBottom: "16px",
             }}>
-              playbookz<span style={{ color: tokens.colors.accent }}>.</span>
+              playbook<span style={{ color: tokens.colors.accent }}>z</span>
             </div>
             <div style={{
               fontSize: "14px",
