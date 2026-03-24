@@ -73,24 +73,31 @@ function MiniBarChart() {
 function CurlyArrow({ flip = false }) {
   return (
     <svg
-      width="120" height="64" viewBox="0 0 120 64"
+      width="140" height="70" viewBox="0 0 140 70"
       fill="none" xmlns="http://www.w3.org/2000/svg"
       style={{
         flexShrink: 0,
         transform: flip ? "scaleX(-1)" : "none",
+        margin: "0 8px",
       }}
     >
+      {/* Dashed path: enters from left, curves up into a loop, exits right */}
       <path
-        d="M 2 50 L 38 50 A 16 16 0 1 0 54 50 L 114 44"
-        stroke="rgba(255,255,255,0.3)"
-        strokeWidth="2"
-        strokeDasharray="4 4"
+        d="M 4 54 C 16 54, 28 52, 38 48 C 48 44, 52 38, 54 30 C 56 22, 52 14, 46 10 C 40 6, 32 6, 28 10 C 24 14, 24 22, 28 28 C 32 34, 40 38, 50 40 C 60 42, 72 44, 82 46 C 92 48, 104 50, 116 50 L 128 50"
+        stroke="rgba(255,255,255,0.25)"
+        strokeWidth="3"
+        strokeDasharray="8 6"
         strokeLinecap="round"
         fill="none"
       />
-      <polygon
-        points="109,38 118,44 109,50"
-        fill="rgba(255,255,255,0.3)"
+      {/* Arrowhead — two angled lines forming a > shape */}
+      <path
+        d="M 122 44 L 132 50 L 122 56"
+        stroke="rgba(255,255,255,0.25)"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        fill="none"
       />
     </svg>
   );
