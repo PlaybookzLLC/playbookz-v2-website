@@ -167,13 +167,6 @@ function VideoCard() {
           backgroundPosition: "center",
           pointerEvents: "none",
         }} />
-        {/* Dark overlay */}
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          background: "rgba(0, 0, 0, 0.8)",
-          pointerEvents: "none",
-        }} />
         {/* Play button */}
         <div style={{
           width: "72px",

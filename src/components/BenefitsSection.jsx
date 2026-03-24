@@ -325,10 +325,6 @@ export default function BenefitsSection() {
       }}>
         {/* ─── Heading ─── */}
         <div className="benefits-fade-1" style={{ marginBottom: "40px", textAlign: "center" }}>
-          <div style={{
-            fontSize: "13px", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em",
-            color: tokens.colors.grayMid, marginBottom: "12px",
-          }}>WHY PERSONAL BRANDING</div>
           <h2 className="benefits-heading" style={{
             fontSize: "48px", fontWeight: 800, lineHeight: 1.1, letterSpacing: "-0.025em",
             color: tokens.colors.textOnLight, margin: "0 auto", maxWidth: "700px",
