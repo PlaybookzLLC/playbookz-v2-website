@@ -5,6 +5,7 @@ import HowItWorksSection from './components/HowItWorksSection'
 import BenefitsSection from './components/BenefitsSection'
 import PricingSection from './components/PricingSection'
 import FAQSection from './components/FAQSection'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <BenefitsSection />
       <PricingSection />
       <FAQSection />
+      <Footer />
     </>
   )
 }
