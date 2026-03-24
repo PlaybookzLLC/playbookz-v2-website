@@ -311,7 +311,7 @@ export default function HowItWorksSection() {
         }}>
           {/* Left: Steps */}
           <div className="hiw-steps" style={{
-            flex: "2 1 0%",
+            flex: "1 1 0%",
           }}>
             {steps.map((step, i) => (
               <StepItem
