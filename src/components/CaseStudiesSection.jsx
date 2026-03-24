@@ -471,7 +471,7 @@ export default function CaseStudiesSection() {
       `}</style>
 
       {/* Constrained container for everything */}
-      <div style={{ maxWidth: tokens.spacing.maxWidth, margin: "0 auto", padding: `0 ${tokens.spacing.sectionX}` }}>
+      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: `0 ${tokens.spacing.sectionX}` }}>
         {/* Heading row */}
         <div className="cs-heading-row" style={{ marginBottom: "40px" }}>
           <h2

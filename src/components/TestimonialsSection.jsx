@@ -542,7 +542,7 @@ export default function TestimonialsSection() {
       `}</style>
 
       <div className="testimonial-section-inner" style={{
-        maxWidth: "1200px",
+        maxWidth: "1280px",
         margin: "0 auto",
         padding: "96px 64px",
       }}>
