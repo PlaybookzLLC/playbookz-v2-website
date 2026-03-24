@@ -10,7 +10,7 @@ const caseStudies = [
     stat: "400k",
     statLabel: "monthly reach",
     category: "B2B SaaS",
-    screenshot: "/case study screenshot (1).png",
+    screenshot: "/case-study-1.png",
     fullContent:
       "Starting from a near-zero presence on LinkedIn, we built a content strategy around thought leadership in the DevOps space. By combining a consistent posting cadence with engagement pods and strategic commenting, we grew this founder's reach from 2,000 impressions per month to over 400,000 — generating 120+ inbound demo requests in the process.",
   },
@@ -22,7 +22,7 @@ const caseStudies = [
     stat: "121%",
     statLabel: "follower growth",
     category: "Vertical SaaS",
-    screenshot: "/case study screenshot (2).png",
+    screenshot: "/case-study-2.png",
     fullContent:
       "The construction-tech space is niche — but that's exactly where personal branding shines. We created a mix of contrarian takes, data-driven posts, and behind-the-scenes content that resonated with builders and GCs. The CEO's follower count more than doubled, and three enterprise deals closed directly from LinkedIn conversations.",
   },
@@ -34,7 +34,7 @@ const caseStudies = [
     stat: "50k",
     statLabel: "monthly reach",
     category: "B2B Services",
-    screenshot: "/case study screenshot (3).png",
+    screenshot: "/case-study-3.png",
     fullContent:
       "This managing partner had never posted on LinkedIn before working with us. We developed a content calendar focused on client transformation stories, industry hot takes, and frameworks. Within 4 months they were averaging 50k impressions per month and attributing the majority of new inbound leads to their LinkedIn presence.",
   },
@@ -46,7 +46,7 @@ const caseStudies = [
     stat: "200k+",
     statLabel: "monthly reach",
     category: "B2B SaaS",
-    screenshot: "/case study screenshot (4).png",
+    screenshot: "/case-study-4.png",
     fullContent:
       "In a crowded fintech market, standing out matters. We crafted a narrative arc for this founder — from bootstrapping stories to industry analysis — that resonated with both potential customers and top-tier engineering talent. The result: 200k+ monthly impressions, 3 key hires sourced directly from LinkedIn, and a 40% increase in inbound sales conversations.",
   },
@@ -58,7 +58,7 @@ const caseStudies = [
     stat: "3x",
     statLabel: "pipeline growth",
     category: "B2B Services",
-    screenshot: "/case study screenshot (5).png",
+    screenshot: "/case-study-5.png",
     fullContent:
       "Staffing is a relationship business — and LinkedIn is where those relationships start. We helped this agency owner share hiring insights, market data, and client success stories consistently. Their qualified pipeline tripled within 5 months, and their cost per lead dropped by over 60% compared to paid advertising.",
   },
