@@ -165,7 +165,13 @@ function VideoCard() {
           backgroundImage: "url(/dofollow-testimonial-thumbnail.png)",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 0.8,
+          pointerEvents: "none",
+        }} />
+        {/* Dark overlay */}
+        <div style={{
+          position: "absolute",
+          inset: 0,
+          background: "rgba(0, 0, 0, 0.8)",
           pointerEvents: "none",
         }} />
         {/* Play button */}
