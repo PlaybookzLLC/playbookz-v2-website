@@ -191,7 +191,7 @@ function CaseStudyModal({ study, onClose }) {
               <img
                 src={study.screenshot}
                 alt={study.title}
-                style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "6px" }}
+                style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "4px", border: "1px solid #E2E8F0" }}
               />
             ) : (
               <div style={{ textAlign: "center", color: "#CBD5E1" }}>
@@ -308,7 +308,7 @@ function CaseStudyCard({ study, onClick }) {
             <img
               src={study.screenshot}
               alt={study.title}
-              style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "6px" }}
+              style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "4px", border: "1px solid #E2E8F0" }}
             />
           ) : (
             <div style={{ textAlign: "center", color: hovered ? "#4A4A50" : "#CBD5E1", transition: "color 0.3s ease" }}>
