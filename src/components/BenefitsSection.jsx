@@ -275,7 +275,7 @@ function AfterPanel({ sliderPos = 25 }) {
 }
 /* ─── Main Section ─── */
 export default function BenefitsSection() {
-  const [sliderPos, setSliderPos] = useState(25);
+  const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef(null);
   const isDragging = useRef(false);
   const handleMove = useCallback((clientX) => {
