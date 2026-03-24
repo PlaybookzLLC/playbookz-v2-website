@@ -125,11 +125,12 @@ export default function HowItWorksSection() {
           border-radius: ${tokens.spacing.borderRadius.lg};
           overflow: visible;
         }
-        .hiw-video-wrap video {
+        .hiw-video-wrap iframe {
           width: 100%;
+          aspect-ratio: 16 / 9;
           display: block;
           border-radius: ${tokens.spacing.borderRadius.lg};
-          border: 1px solid ${tokens.colors.cardDarkBorder};
+          border: 1px solid ${tokens.colors.accent};
         }
 
         @media (max-width: 900px) {
@@ -175,8 +176,8 @@ export default function HowItWorksSection() {
           <p
             style={{
               fontFamily: tokens.typography.bodyFont,
-              fontSize: t.bodyLG.size,
-              lineHeight: t.bodyLG.lineHeight,
+              fontSize: t.bodySM.size,
+              lineHeight: t.bodySM.lineHeight,
               color: tokens.colors.textOnDarkMuted,
               marginTop: "16px",
               maxWidth: "600px",
@@ -195,16 +196,13 @@ export default function HowItWorksSection() {
           <div className="hiw-col-left">
             <div className="hiw-video-wrap">
               <WatchMeBadge />
-              <video
-                controls
-                preload="metadata"
-                poster=""
-                aria-label="How it works walkthrough video"
-              >
-                {/* Replace src with the real video URL */}
-                <source src="" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <iframe
+                src="https://www.loom.com/embed/7cd848c6627443b2bd020934b983284d"
+                title="How it works walkthrough video"
+                allowFullScreen
+                allow="autoplay; fullscreen"
+                frameBorder="0"
+              />
             </div>
           </div>
 
