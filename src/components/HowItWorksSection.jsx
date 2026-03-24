@@ -116,7 +116,6 @@ function StepItem({ num, title, desc, isLast, isActive, onHover }) {
           lineHeight: 1.6,
           color: isActive ? tokens.colors.textOnDarkMuted : "rgba(255,255,255,0.35)",
           margin: 0,
-          maxWidth: "420px",
           fontFamily: "'Plus Jakarta Sans', sans-serif",
           transition: "color 0.2s ease",
         }}>{desc}</p>
