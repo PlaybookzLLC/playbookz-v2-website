@@ -140,6 +140,7 @@ function VideoCard() {
         overflow: "hidden",
         textDecoration: "none",
         color: "inherit",
+        width: "100%",
         transition: "all 0.2s ease",
         transform: hovered ? "translateY(-2px)" : "none",
         boxShadow: hovered ? "0 8px 32px rgba(0,0,0,0.4)" : "0 4px 16px rgba(0,0,0,0.2)",
