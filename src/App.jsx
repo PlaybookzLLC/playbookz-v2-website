@@ -4,6 +4,7 @@ import TestimonialsSection from './components/TestimonialsSection'
 import HowItWorksSection from './components/HowItWorksSection'
 import BenefitsSection from './components/BenefitsSection'
 import PricingSection from './components/PricingSection'
+import FAQSection from './components/FAQSection'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <HowItWorksSection />
       <BenefitsSection />
       <PricingSection />
+      <FAQSection />
     </>
   )
 }
