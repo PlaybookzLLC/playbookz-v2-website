@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { tokens } from "../design-system/tokens";
 
 /* --- Stars Component --- */
@@ -96,16 +96,123 @@ function CurlyArrow({ flip = false }) {
   );
 }
 
-/* --- Video Testimonial Card --- */
-const LOOM_URL = "https://www.loom.com/share/7cd848c6627443b2bd020934b983284d";
+/* --- Arrow icons matching case studies --- */
+const ArrowLeft = () => (
+  <svg width="25" height="17" viewBox="0 0 25 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M0.821247 7.98744L0.821564 7.98713L7.4292 1.37944C7.72124 1.04345 8.23022 1.00543 8.56895 1.29557C8.90919 1.58695 8.94887 2.09903 8.6574 2.4393L8.65737 2.43934C8.63163 2.46937 8.60365 2.49764 8.57356 2.52377L3.35224 7.75143H23.5615C24.0095 7.75143 24.3727 8.11462 24.3727 8.56262C24.3727 9.01065 24.0095 9.37376 23.5615 9.37376H3.35255L8.57355 14.5948C8.90954 14.8868 8.94755 15.3958 8.6574 15.7345C8.36598 16.0747 7.85396 16.1144 7.51368 15.823L7.51365 15.8229C7.4836 15.7972 7.45531 15.7692 7.42917 15.7391L0.821508 9.13142L0.821203 9.13111C0.506708 8.81481 0.506742 8.30383 0.821247 7.98744Z"
+      fill="#15141a"
+      stroke="#15141a"
+      strokeWidth="0.3"
+    />
+  </svg>
+);
 
-function VideoCard() {
+const ArrowRight = () => (
+  <svg width="25" height="17" viewBox="0 0 25 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M24.1788 7.98744L24.1784 7.98713L17.5708 1.37944C17.2788 1.04345 16.7698 1.00543 16.4311 1.29557C16.0908 1.58695 16.0511 2.09903 16.3426 2.4393L16.3426 2.43934C16.3684 2.46937 16.3964 2.49764 16.4264 2.52377L21.6478 7.75143H1.43848C0.990482 7.75143 0.627289 8.11462 0.627289 8.56262C0.627289 9.01065 0.990482 9.37376 1.43848 9.37376H21.6474L16.4264 14.5948C16.0905 14.8868 16.0525 15.3958 16.3426 15.7345C16.634 16.0747 17.146 16.1144 17.4863 15.823L17.4864 15.8229C17.5164 15.7972 17.5447 15.7692 17.5708 15.7391L24.1785 9.13142L24.1788 9.13111C24.4933 8.81481 24.4933 8.30383 24.1788 7.98744Z"
+      fill="#15141a"
+      stroke="#15141a"
+      strokeWidth="0.3"
+    />
+  </svg>
+);
+
+/* --- Close icon for modal --- */
+const CloseIcon = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18" />
+    <line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+);
+
+/* --- Loom Video Modal --- */
+const LOOM_SHARE_URL = "https://www.loom.com/share/7cd848c6627443b2bd020934b983284d";
+const LOOM_EMBED_URL = "https://www.loom.com/embed/7cd848c6627443b2bd020934b983284d?autoplay=1";
+
+function LoomModal({ open, onClose }) {
+  if (!open) return null;
+  return (
+    <div
+      onClick={onClose}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        background: "rgba(0,0,0,0.75)",
+        backdropFilter: "blur(4px)",
+        WebkitBackdropFilter: "blur(4px)",
+        zIndex: 1000,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "24px",
+        animation: "loomModalFadeIn 0.2s ease",
+      }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{
+          position: "relative",
+          width: "100%",
+          maxWidth: "960px",
+          aspectRatio: "16/9",
+          borderRadius: "8px",
+          overflow: "hidden",
+          background: "#000",
+          animation: "loomModalSlideUp 0.25s ease",
+        }}
+      >
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          style={{
+            position: "absolute",
+            top: "-48px",
+            right: "0",
+            background: "rgba(255,255,255,0.15)",
+            border: "none",
+            borderRadius: "50%",
+            width: "40px",
+            height: "40px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            color: "#fff",
+            zIndex: 10,
+            transition: "background 0.15s ease",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.25)")}
+          onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.15)")}
+        >
+          <CloseIcon />
+        </button>
+        <iframe
+          src={LOOM_EMBED_URL}
+          frameBorder="0"
+          allowFullScreen
+          allow="autoplay"
+          style={{
+            width: "100%",
+            height: "100%",
+            border: "none",
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+/* --- Video Testimonial Card --- */
+function VideoCard({ onPlay }) {
   const [hovered, setHovered] = useState(false);
   return (
-    <a
-      href={LOOM_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+    <div
+      onClick={onPlay}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
@@ -114,7 +221,6 @@ function VideoCard() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        minHeight: "320px",
         height: "100%",
         boxSizing: "border-box",
         cursor: "pointer",
@@ -123,22 +229,29 @@ function VideoCard() {
         boxShadow: hovered ? tokens.shadows.cardHover : tokens.shadows.cardLight,
         position: "relative",
         overflow: "hidden",
-        textDecoration: "none",
-        color: "inherit",
       }}
     >
-      {/* Thumbnail background */}
+      {/* Thumbnail background image */}
+      <div style={{
+        position: "absolute",
+        inset: 0,
+        backgroundImage: "url(/dofollow-testimonial-thumbnail.png)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        zIndex: 0,
+      }} />
+      {/* Fallback gradient (shows if image doesn't load) */}
       <div style={{
         position: "absolute",
         inset: 0,
         background: `linear-gradient(135deg, ${tokens.colors.primaryMuted} 0%, ${tokens.colors.primary} 100%)`,
-        zIndex: 0,
+        zIndex: -1,
       }} />
-      {/* Dark overlay */}
+      {/* Dark overlay at 70% opacity */}
       <div style={{
         position: "absolute",
         inset: 0,
-        background: "rgba(0,0,0,0.15)",
+        background: "rgba(0,0,0,0.70)",
         zIndex: 1,
       }} />
       {/* Play button */}
@@ -202,11 +315,14 @@ function VideoCard() {
           </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 
 /* --- Text Testimonial Card --- */
+const TESTIMONIAL_CARD_WIDTH = 270;
+const TESTIMONIAL_GAP = 16;
+
 function TestimonialCard({ stars, text, name, role, time, initials }) {
   const [hovered, setHovered] = useState(false);
   return (
@@ -224,6 +340,8 @@ function TestimonialCard({ stars, text, name, role, time, initials }) {
         display: "flex",
         flexDirection: "column",
         cursor: "default",
+        width: `${TESTIMONIAL_CARD_WIDTH}px`,
+        flexShrink: 0,
         height: "100%",
         boxSizing: "border-box",
       }}
@@ -282,64 +400,100 @@ function TestimonialCard({ stars, text, name, role, time, initials }) {
 }
 
 /* --- Main Section --- */
+const testimonials = [
+  {
+    stars: 5,
+    text: "We went from zero LinkedIn presence to 50k+ impressions in the first month. The team nailed our voice from day one.",
+    name: "Sarah K.",
+    role: "Founder, Marketing Agency",
+    time: "2 weeks ago",
+    initials: "SK",
+  },
+  {
+    stars: 5,
+    text: "Playbookz completely freed up my calendar. I used to spend hours on content — now I just approve drafts and watch the engagement roll in.",
+    name: "David M.",
+    role: "VP Sales, B2B SaaS",
+    time: "3 weeks ago",
+    initials: "DM",
+  },
+  {
+    stars: 5,
+    text: "The viral post structures actually work. Had a post hit 200k views in my second week. Never happened before.",
+    name: "Rachel T.",
+    role: "CEO, Consulting Firm",
+    time: "1 month ago",
+    initials: "RT",
+  },
+  {
+    stars: 5,
+    text: "Best investment we've made this year. Our CEO's LinkedIn went from ghost town to generating 3–4 warm leads a week.",
+    name: "Mark L.",
+    role: "Head of Growth, FinTech",
+    time: "1 month ago",
+    initials: "ML",
+  },
+  {
+    stars: 4,
+    text: "Onboarding was seamless and the posts feel authentically ours. Genuinely impressed by how fast they dialed in our tone.",
+    name: "Priya S.",
+    role: "COO, Staffing Agency",
+    time: "6 weeks ago",
+    initials: "PS",
+  },
+  {
+    stars: 5,
+    text: "We tried doing LinkedIn in-house for a year and got nowhere. Playbookz got us more traction in 30 days than we managed in 12 months.",
+    name: "Alex W.",
+    role: "Founder, Dev Agency",
+    time: "2 months ago",
+    initials: "AW",
+  },
+];
+
 export default function TestimonialsSection() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loomOpen, setLoomOpen] = useState(false);
+  const scrollRef = useRef(null);
+  const isResetting = useRef(false);
 
-  const testimonials = [
-    {
-      stars: 5,
-      text: "We went from zero LinkedIn presence to 50k+ impressions in the first month. The team nailed our voice from day one.",
-      name: "Sarah K.",
-      role: "Founder, Marketing Agency",
-      time: "2 weeks ago",
-      initials: "SK",
-    },
-    {
-      stars: 5,
-      text: "Playbookz completely freed up my calendar. I used to spend hours on content — now I just approve drafts and watch the engagement roll in.",
-      name: "David M.",
-      role: "VP Sales, B2B SaaS",
-      time: "3 weeks ago",
-      initials: "DM",
-    },
-    {
-      stars: 5,
-      text: "The viral post structures actually work. Had a post hit 200k views in my second week. Never happened before.",
-      name: "Rachel T.",
-      role: "CEO, Consulting Firm",
-      time: "1 month ago",
-      initials: "RT",
-    },
-    {
-      stars: 5,
-      text: "Best investment we've made this year. Our CEO's LinkedIn went from ghost town to generating 3–4 warm leads a week.",
-      name: "Mark L.",
-      role: "Head of Growth, FinTech",
-      time: "1 month ago",
-      initials: "ML",
-    },
-    {
-      stars: 4,
-      text: "Onboarding was seamless and the posts feel authentically ours. Genuinely impressed by how fast they dialed in our tone.",
-      name: "Priya S.",
-      role: "COO, Staffing Agency",
-      time: "6 weeks ago",
-      initials: "PS",
-    },
-    {
-      stars: 5,
-      text: "We tried doing LinkedIn in-house for a year and got nowhere. Playbookz got us more traction in 30 days than we managed in 12 months.",
-      name: "Alex W.",
-      role: "Founder, Dev Agency",
-      time: "2 months ago",
-      initials: "AW",
-    },
-  ];
+  // Triple the cards for infinite scroll illusion
+  const tripled = [...testimonials, ...testimonials, ...testimonials];
+  const cardWidth = TESTIMONIAL_CARD_WIDTH + TESTIMONIAL_GAP;
 
-  const cardsPerView = 2;
-  const totalSlides = Math.ceil(testimonials.length / cardsPerView);
-  const goNext = () => setCurrentSlide(prev => (prev + 1) % totalSlides);
-  const goPrev = () => setCurrentSlide(prev => (prev - 1 + totalSlides) % totalSlides);
+  // On mount, scroll to the middle set so we can scroll both directions
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft = testimonials.length * cardWidth;
+    }
+  }, []);
+
+  // When scroll reaches near edges, jump to the middle set
+  const handleScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el || isResetting.current) return;
+    const oneSetWidth = testimonials.length * cardWidth;
+    if (el.scrollLeft < oneSetWidth * 0.25) {
+      isResetting.current = true;
+      el.style.scrollBehavior = "auto";
+      el.scrollLeft += oneSetWidth;
+      el.style.scrollBehavior = "";
+      isResetting.current = false;
+    } else if (el.scrollLeft > oneSetWidth * 1.75) {
+      isResetting.current = true;
+      el.style.scrollBehavior = "auto";
+      el.scrollLeft -= oneSetWidth;
+      el.style.scrollBehavior = "";
+      isResetting.current = false;
+    }
+  }, []);
+
+  const scroll = (direction) => {
+    if (!scrollRef.current) return;
+    scrollRef.current.scrollBy({
+      left: direction === "right" ? cardWidth : -cardWidth,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div style={{
@@ -352,9 +506,19 @@ export default function TestimonialsSection() {
           from { opacity: 0; transform: translateY(20px); }
           to { opacity: 1; transform: translateY(0); }
         }
+        @keyframes loomModalFadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes loomModalSlideUp {
+          from { opacity: 0; transform: translateY(16px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
         .testimonial-fade-1 { animation: fadeInUp 0.6s ease both; }
         .testimonial-fade-2 { animation: fadeInUp 0.6s ease both; animation-delay: 0.1s; }
         .testimonial-fade-3 { animation: fadeInUp 0.6s ease both; animation-delay: 0.2s; }
+        .tm-scroll-track::-webkit-scrollbar { display: none; }
+        .tm-scroll-track { -ms-overflow-style: none; scrollbar-width: none; }
         @media (max-width: 1023px) {
           .testimonial-split { flex-direction: column !important; }
           .testimonial-video-half, .testimonial-carousel-half { flex: 1 1 100% !important; max-width: 100% !important; }
@@ -500,123 +664,78 @@ export default function TestimonialsSection() {
           </div>
         </div>
 
-        {/* --- Single Row: Video + Horizontal Carousel --- */}
+        {/* --- Single Row: Video + Infinite Scroll Carousel --- */}
         <div className="testimonial-fade-3 testimonial-split" style={{
           display: "flex",
           gap: "16px",
           alignItems: "stretch",
         }}>
-          {/* Video Card — 50% */}
+          {/* Video Card — left half */}
           <div className="testimonial-video-half" style={{
             flex: "0 0 calc(50% - 8px)",
             display: "flex",
           }}>
-            <VideoCard />
+            <VideoCard onPlay={() => setLoomOpen(true)} />
           </div>
 
-          {/* Horizontal Carousel — 50% */}
+          {/* Infinite Scroll Carousel — right half */}
           <div className="testimonial-carousel-half" style={{
             flex: "0 0 calc(50% - 8px)",
-            display: "flex",
-            flexDirection: "column",
+            position: "relative",
             minWidth: 0,
           }}>
-            {/* Overflow wrapper */}
-            <div style={{ overflow: "hidden", flex: 1 }}>
-              <div style={{
+            {/* Right arrow — positioned on the right edge */}
+            <button
+              onClick={() => scroll("right")}
+              style={{
+                position: "absolute",
+                right: "-24px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 10,
+                width: "48px",
+                height: "48px",
+                borderRadius: "50%",
+                background: tokens.colors.white,
+                border: "1px solid #E2E8F0",
                 display: "flex",
-                transition: "transform 0.4s ease",
-                transform: `translateX(-${currentSlide * 100}%)`,
-                height: "100%",
-              }}>
-                {Array.from({ length: Math.ceil(testimonials.length / cardsPerView) }).map((_, groupIdx) => (
-                  <div key={groupIdx} style={{
-                    display: "flex",
-                    gap: "16px",
-                    flex: "0 0 100%",
-                    minWidth: 0,
-                    width: "100%",
-                    boxSizing: "border-box",
-                  }}>
-                    {testimonials.slice(groupIdx * cardsPerView, groupIdx * cardsPerView + cardsPerView).map((t, i) => (
-                      <div key={i} style={{ flex: 1, minWidth: 0, display: "flex" }}>
-                        <TestimonialCard {...t} />
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+                transition: "box-shadow 0.15s ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.1)")}
+              onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.06)")}
+            >
+              <ArrowRight />
+            </button>
 
-            {/* Navigation: dots + arrows */}
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              marginTop: "16px",
-            }}>
-              {/* Dots */}
-              <div style={{ display: "flex", gap: "6px" }}>
-                {Array.from({ length: totalSlides }).map((_, i) => (
-                  <div
-                    key={i}
-                    onClick={() => setCurrentSlide(i)}
-                    style={{
-                      width: currentSlide === i ? "20px" : "8px",
-                      height: "8px",
-                      borderRadius: "4px",
-                      background: currentSlide === i ? tokens.colors.primary : tokens.colors.grayLight,
-                      cursor: "pointer",
-                      transition: "all 0.2s ease",
-                    }}
-                  />
-                ))}
-              </div>
-              {/* Arrows */}
-              <div style={{ display: "flex", gap: "8px" }}>
-                <button
-                  onClick={goPrev}
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    border: `1.5px solid ${tokens.colors.primary}`,
-                    background: "transparent",
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    transition: "all 0.15s ease",
-                  }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M10 4L6 8L10 12" stroke={tokens.colors.primary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-                <button
-                  onClick={goNext}
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    border: `1.5px solid ${tokens.colors.primary}`,
-                    background: "transparent",
-                    cursor: "pointer",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    transition: "all 0.15s ease",
-                  }}
-                >
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M6 4L10 8L6 12" stroke={tokens.colors.primary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </button>
-              </div>
+            {/* Scrollable card track */}
+            <div
+              ref={scrollRef}
+              className="tm-scroll-track"
+              onScroll={handleScroll}
+              style={{
+                display: "flex",
+                alignItems: "stretch",
+                gap: `${TESTIMONIAL_GAP}px`,
+                overflowX: "auto",
+                height: "100%",
+              }}
+            >
+              {tripled.map((t, i) => (
+                <div key={`${t.initials}-${i}`} style={{ display: "flex", flexShrink: 0 }}>
+                  <TestimonialCard {...t} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Loom Video Modal */}
+      <LoomModal open={loomOpen} onClose={() => setLoomOpen(false)} />
     </div>
   );
 }
