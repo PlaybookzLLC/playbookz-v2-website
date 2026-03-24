@@ -102,7 +102,7 @@ function VideoCard({ onPlay }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        height: "100%",
+        minHeight: "340px",
         boxSizing: "border-box",
         cursor: "pointer",
         transition: "all 0.2s ease",
