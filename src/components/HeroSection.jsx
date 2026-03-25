@@ -202,7 +202,7 @@ export default function HeroSection() {
           {/* LEFT COLUMN */}
           <div className="hero-left" style={{ flex: "1 1 55%", maxWidth: "620px", paddingRight: "24px" }}>
             <h1 className="hero-h1 hero-fade-1" style={{
-              fontSize: "61px", fontWeight: 800, lineHeight: 1.05,
+              fontSize: "70px", fontWeight: 800, lineHeight: 1.05,
               letterSpacing: "-0.03em", margin: 0, color: tokens.colors.white,
             }}>
               Scale your{" "}
