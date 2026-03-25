@@ -216,7 +216,7 @@ export default function HeroSection() {
               fontSize: "17px", fontWeight: 400, color: tokens.colors.textOnDarkMuted,
               margin: "24px 0 0 0", lineHeight: 1.5,
             }}>
-              🟦 <span style={{ fontWeight: 700, color: tokens.colors.white }}>3.2+ million</span> views &{" "}
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 72 72" style={{ verticalAlign: "middle", marginRight: "6px", display: "inline-block", position: "relative", top: "-1px" }}><rect width="72" height="72" rx="12" fill="#0A66C2"/><path d="M21 28h7v22h-7V28zm3.5-10a4.05 4.05 0 110 8.1 4.05 4.05 0 010-8.1zM33 28h6.7v3h.1c.9-1.8 3.2-3.6 6.6-3.6 7.1 0 8.4 4.7 8.4 10.7V50h-7V39.7c0-2.5 0-5.6-3.4-5.6s-3.9 2.7-3.9 5.4V50h-7V28z" fill="#fff"/></svg><span style={{ fontWeight: 700, color: tokens.colors.white }}>3.2+ million</span> views &{" "}
               <span style={{ fontWeight: 700, color: tokens.colors.white }}>6,000+</span> leads in the last 12mo
             </p>
 
