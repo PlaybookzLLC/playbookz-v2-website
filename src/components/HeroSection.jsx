@@ -147,11 +147,11 @@ export default function HeroSection() {
           .hero-row { flex-direction: column !important; }
           .hero-left { max-width: 100% !important; padding-right: 0 !important; }
           .hero-right { display: none !important; }
-          .hero-h1 { font-size: 38px !important; }
+          .hero-h1 { font-size: 40px !important; }
         }
         @media (max-width: 639px) {
           .hero-section-inner { padding: 64px 24px !important; }
-          .hero-h1 { font-size: 30px !important; }
+          .hero-h1 { font-size: 32px !important; }
           .hero-cta-row { flex-direction: column !important; }
           .hero-cta-row button { width: 100% !important; }
         }
@@ -202,7 +202,7 @@ export default function HeroSection() {
           {/* LEFT COLUMN */}
           <div className="hero-left" style={{ flex: "1 1 55%", maxWidth: "620px", paddingRight: "24px" }}>
             <h1 className="hero-h1 hero-fade-1" style={{
-              fontSize: "58px", fontWeight: 800, lineHeight: 1.05,
+              fontSize: "61px", fontWeight: 800, lineHeight: 1.05,
               letterSpacing: "-0.03em", margin: 0, color: tokens.colors.white,
             }}>
               Scale your{" "}
