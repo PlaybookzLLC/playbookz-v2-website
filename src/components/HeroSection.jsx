@@ -216,7 +216,7 @@ export default function HeroSection() {
               fontSize: "17px", fontWeight: 400, color: tokens.colors.textOnDarkMuted,
               margin: "24px 0 0 0", lineHeight: 1.5,
             }}>
-              <span style={{ fontWeight: 700, color: tokens.colors.white }}>3.2+ million</span> views &{" "}
+              🟦 <span style={{ fontWeight: 700, color: tokens.colors.white }}>3.2+ million</span> views &{" "}
               <span style={{ fontWeight: 700, color: tokens.colors.white }}>6,000+</span> leads in the last 12mo
             </p>
 
