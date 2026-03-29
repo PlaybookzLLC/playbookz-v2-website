@@ -181,7 +181,8 @@ export default function HeroSection() {
           {[
             { label: "Prices", href: "#pricing" },
             { label: "Case Studies", href: "#results" },
-            { label: "Contact Us", href: "#", onClick: (e) => { e.preventDefault(); setShowDemoModal(true); } },
+            { label: "How it Works", href: "#how-it-works" },
+            { label: "FAQ", href: "#faq" },
           ].map((item) => (
             <a key={item.label} href={item.href} onClick={item.onClick} style={{
               fontSize: "15px", fontWeight: 500, color: tokens.colors.textOnDarkMuted,

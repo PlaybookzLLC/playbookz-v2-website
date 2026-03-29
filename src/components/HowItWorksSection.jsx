@@ -231,7 +231,7 @@ function VideoCard() {
 export default function HowItWorksSection() {
   const [activeStep, setActiveStep] = useState(0);
   return (
-    <div style={{
+    <div id="how-it-works" style={{
       fontFamily: "'Plus Jakarta Sans', sans-serif",
       background: tokens.colors.primary,
       position: "relative",

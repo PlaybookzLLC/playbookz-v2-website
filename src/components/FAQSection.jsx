@@ -125,7 +125,7 @@ function FAQRow({ question, answer, isOpen, onClick }) {
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState(0);
   return (
-    <div style={{
+    <div id="faq" style={{
       fontFamily: "'Plus Jakarta Sans', sans-serif",
       background: tokens.colors.white,
       position: "relative",
