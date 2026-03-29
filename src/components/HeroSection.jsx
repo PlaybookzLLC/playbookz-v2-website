@@ -117,10 +117,17 @@ export default function HeroSection() {
   useEffect(() => {
     if (showDemoModal) {
       document.body.style.overflow = "hidden";
+      const script = document.createElement("script");
+      script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+      script.async = true;
+      document.body.appendChild(script);
+      return () => {
+        document.body.style.overflow = "";
+        document.body.removeChild(script);
+      };
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
   }, [showDemoModal]);
 
   return (
@@ -442,12 +449,10 @@ export default function HeroSection() {
                 }}
               >&times;</button>
             </div>
-            <div style={{ flex: 1, overflow: "auto", padding: "0" }}>
-              {/* Replace the src below with your HubSpot meetings embed URL */}
-              <iframe
-                src="https://meetings.hubspot.com/YOUR-LINK-HERE"
-                style={{ width: "100%", height: "660px", border: "none" }}
-                title="Book a Demo"
+            <div style={{ flex: 1, overflow: "auto", padding: "24px" }}>
+              <div
+                className="meetings-iframe-container"
+                data-src="https://meetings.hubspot.com/pcarrell/new?embed=true"
               />
             </div>
           </div>
