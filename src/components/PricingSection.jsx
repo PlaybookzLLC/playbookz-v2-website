@@ -25,7 +25,7 @@ const tiers = [
   {
     name: "Growth",
     tagline: "Perfect for founders starting their brand journey.",
-    price: "997",
+    price: "1,450",
     features: [
       "3 Posts Per Week",
       "Dedicated Human Editor",
@@ -41,7 +41,7 @@ const tiers = [
   {
     name: "Scale",
     tagline: "For founders ready to dominate their industry.",
-    price: "1,997",
+    price: "2,450",
     prefix: "Everything in Growth, plus:",
     features: [
       "Custom Images for Posts",
