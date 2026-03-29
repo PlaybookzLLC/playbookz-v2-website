@@ -5,7 +5,7 @@ export default function DemoModal({ onClose }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     const script = document.createElement("script");
-    script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
+    script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
     document.body.appendChild(script);
     return () => {
@@ -53,10 +53,11 @@ export default function DemoModal({ onClose }) {
             }}
           >&times;</button>
         </div>
-        <div style={{ flex: 1, overflow: "auto", padding: "24px" }}>
+        <div style={{ flex: 1, overflow: "auto" }}>
           <div
-            className="meetings-iframe-container"
-            data-src="https://meetings.hubspot.com/pcarrell/new?embed=true"
+            className="calendly-inline-widget"
+            data-url="https://calendly.com/perrin-playbookz/30min?hide_gdpr_banner=1&primary_color=15141a"
+            style={{ minWidth: "320px", height: "700px" }}
           />
         </div>
       </div>
