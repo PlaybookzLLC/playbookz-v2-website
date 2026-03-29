@@ -209,7 +209,7 @@ function PricingCard({ name, tagline, price, features, prefix, cta, highlighted 
 /* --- Main Section --- */
 export default function PricingSection() {
   return (
-    <div style={{
+    <div id="pricing" style={{
       fontFamily: "'Plus Jakarta Sans', sans-serif",
       background: tokens.colors.primary,
       position: "relative",

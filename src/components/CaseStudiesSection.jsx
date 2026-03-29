@@ -447,6 +447,7 @@ export default function CaseStudiesSection() {
 
   return (
     <section
+      id="results"
       style={{
         fontFamily: tokens.typography.bodyFont,
         background: tokens.colors.white,

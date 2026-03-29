@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { tokens } from "../design-system/tokens";
 
 const clientLogos = [
@@ -112,8 +112,19 @@ function ReachCard({ top, left, right, value, delay, scale = 1 }) {
 
 export default function HeroSection() {
   const [hoveredBtn, setHoveredBtn] = useState(null);
+  const [showDemoModal, setShowDemoModal] = useState(false);
+
+  useEffect(() => {
+    if (showDemoModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [showDemoModal]);
 
   return (
+    <>
     <div style={{
       fontFamily: "'Plus Jakarta Sans', sans-serif",
       background: tokens.colors.primary,
@@ -167,16 +178,20 @@ export default function HeroSection() {
           playbook<span style={{ color: tokens.colors.accent }}>z</span>
         </div>
         <div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
-          {["Services", "Case Studies", "Contact Us"].map((item) => (
-            <a key={item} href="#" style={{
+          {[
+            { label: "Prices", href: "#pricing" },
+            { label: "Case Studies", href: "#results" },
+            { label: "Contact Us", href: "#", onClick: (e) => { e.preventDefault(); setShowDemoModal(true); } },
+          ].map((item) => (
+            <a key={item.label} href={item.href} onClick={item.onClick} style={{
               fontSize: "15px", fontWeight: 500, color: tokens.colors.textOnDarkMuted,
               textDecoration: "none", transition: "color 0.15s ease",
             }}
             onMouseEnter={e => e.target.style.color = tokens.colors.white}
             onMouseLeave={e => e.target.style.color = tokens.colors.textOnDarkMuted}
-            >{item}</a>
+            >{item.label}</a>
           ))}
-          <button style={{
+          <button onClick={() => setShowDemoModal(true)} style={{
             background: tokens.colors.accent, color: tokens.colors.textOnAccent,
             border: "none", borderRadius: "999px",
             padding: "12px 24px", fontSize: "14px", fontWeight: 700,
@@ -385,5 +400,58 @@ export default function HeroSection() {
         </div>
       </div>
     </div>
+
+      {/* HubSpot Demo Modal */}
+      {showDemoModal && (
+        <div
+          onClick={() => setShowDemoModal(false)}
+          style={{
+            position: "fixed", inset: 0, zIndex: 9999,
+            background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            animation: "demoModalFadeIn 0.2s ease",
+          }}
+        >
+          <style>{`
+            @keyframes demoModalFadeIn { from { opacity: 0; } to { opacity: 1; } }
+            @keyframes demoModalSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+          `}</style>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: tokens.colors.white, borderRadius: "16px",
+              width: "90%", maxWidth: "700px", maxHeight: "90vh",
+              overflow: "hidden", position: "relative",
+              animation: "demoModalSlideUp 0.25s ease",
+              display: "flex", flexDirection: "column",
+            }}
+          >
+            <div style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center",
+              padding: "20px 24px", borderBottom: `1px solid ${tokens.colors.grayLight}`,
+            }}>
+              <h3 style={{ margin: 0, fontSize: "18px", fontWeight: 700, color: tokens.colors.textOnLight, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                Book a Demo
+              </h3>
+              <button
+                onClick={() => setShowDemoModal(false)}
+                style={{
+                  background: "none", border: "none", cursor: "pointer",
+                  fontSize: "24px", color: tokens.colors.grayDark, lineHeight: 1,
+                }}
+              >&times;</button>
+            </div>
+            <div style={{ flex: 1, overflow: "auto", padding: "0" }}>
+              {/* Replace the src below with your HubSpot meetings embed URL */}
+              <iframe
+                src="https://meetings.hubspot.com/YOUR-LINK-HERE"
+                style={{ width: "100%", height: "660px", border: "none" }}
+                title="Book a Demo"
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
