@@ -264,7 +264,8 @@ export default function HeroSection() {
                   cursor: "pointer", transition: "all 0.15s ease",
                 }}
               >Get Demo</button>
-              <button
+              <a
+                href="#pricing"
                 onMouseEnter={(e) => { setHoveredBtn("secondary"); e.target.style.transform = "translateY(-1px)"; e.target.style.borderColor = tokens.colors.accent; e.target.style.color = tokens.colors.accent; }}
                 onMouseLeave={(e) => { setHoveredBtn(null); e.target.style.transform = ""; e.target.style.borderColor = tokens.colors.white; e.target.style.color = tokens.colors.white; }}
                 style={{
@@ -272,9 +273,9 @@ export default function HeroSection() {
                   border: `2px solid ${tokens.colors.white}`, borderRadius: "999px",
                   padding: "14px 32px", fontSize: "16px", fontWeight: 700,
                   fontFamily: "'Plus Jakarta Sans', sans-serif", cursor: "pointer",
-                  transition: "all 0.15s ease",
+                  transition: "all 0.15s ease", textDecoration: "none", display: "inline-block",
                 }}
-              >See Pricing</button>
+              >See Pricing</a>
             </div>
 
             <p className="hero-fade-6" style={{ fontSize: "13px", color: tokens.colors.grayMid, marginTop: "20px", fontWeight: 500 }}>
