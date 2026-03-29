@@ -369,7 +369,7 @@ export default function ComparisonSection() {
           ))}
         </div>
         {/* ─── Guarantee Card ─── */}
-        <div className="comp-fade-2" style={{ position: "relative", paddingBottom: "24px", marginTop: "64px" }}>
+        <div className="comp-fade-2" style={{ position: "relative", paddingBottom: "24px", marginTop: "84px" }}>
           <div className="guarantee-card guarantee-inner" style={{
             background: tokens.colors.primary,
             borderRadius: "5px",
