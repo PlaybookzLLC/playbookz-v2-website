@@ -177,19 +177,12 @@ export default function HeroSection() {
             >{item}</a>
           ))}
           <button style={{
-            background: "transparent", color: tokens.colors.white,
-            border: `2px solid ${tokens.colors.white}`, borderRadius: "999px",
-            padding: "10px 24px", fontSize: "14px", fontWeight: 700,
-            fontFamily: "'Plus Jakarta Sans', sans-serif", cursor: "pointer",
-            transition: "all 0.15s ease",
-          }}>Login</button>
-          <button style={{
             background: tokens.colors.accent, color: tokens.colors.textOnAccent,
             border: "none", borderRadius: "999px",
             padding: "12px 24px", fontSize: "14px", fontWeight: 700,
             fontFamily: "'Plus Jakarta Sans', sans-serif", cursor: "pointer",
             transition: "all 0.15s ease",
-          }}>Book a Call</button>
+          }}>Get Demo</button>
         </div>
       </nav>
 
@@ -261,7 +254,7 @@ export default function HeroSection() {
                   fontSize: "16px", fontWeight: 700, fontFamily: "'Plus Jakarta Sans', sans-serif",
                   cursor: "pointer", transition: "all 0.15s ease",
                 }}
-              >Book a Call</button>
+              >Get Demo</button>
               <button
                 onMouseEnter={(e) => { setHoveredBtn("secondary"); e.target.style.transform = "translateY(-1px)"; e.target.style.borderColor = tokens.colors.accent; e.target.style.color = tokens.colors.accent; }}
                 onMouseLeave={(e) => { setHoveredBtn(null); e.target.style.transform = ""; e.target.style.borderColor = tokens.colors.white; e.target.style.color = tokens.colors.white; }}
