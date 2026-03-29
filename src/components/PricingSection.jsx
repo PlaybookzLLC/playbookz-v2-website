@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DemoModal from "./DemoModal";
 const tokens = {
   colors: {
     primary: "#15141A",
@@ -63,7 +64,7 @@ function CheckIcon({ accent = false }) {
   );
 }
 /* --- Pricing Card --- */
-function PricingCard({ name, tagline, price, features, prefix, cta, highlighted }) {
+function PricingCard({ name, tagline, price, features, prefix, cta, highlighted, onCtaClick }) {
   const [hovered, setHovered] = useState(false);
   return (
     <div
@@ -186,6 +187,7 @@ function PricingCard({ name, tagline, price, features, prefix, cta, highlighted 
       </div>
       {/* CTA */}
       <button
+        onClick={onCtaClick}
         style={{
           marginTop: "36px",
           width: "100%",
@@ -208,6 +210,7 @@ function PricingCard({ name, tagline, price, features, prefix, cta, highlighted 
 }
 /* --- Main Section --- */
 export default function PricingSection() {
+  const [showDemoModal, setShowDemoModal] = useState(false);
   return (
     <div id="pricing" style={{
       fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -262,7 +265,7 @@ export default function PricingSection() {
           alignItems: "stretch",
         }}>
           {tiers.map((tier, i) => (
-            <PricingCard key={i} {...tier} />
+            <PricingCard key={i} {...tier} onCtaClick={() => setShowDemoModal(true)} />
           ))}
         </div>
         {/* --- Talk to a human --- */}
@@ -274,7 +277,7 @@ export default function PricingSection() {
           fontFamily: "'Plus Jakarta Sans', sans-serif",
         }}>
           Not sure which plan is right? We'll help you figure it out.{" "}
-          <a href="#" style={{
+          <a href="#" onClick={(e) => { e.preventDefault(); setShowDemoModal(true); }} style={{
             color: tokens.colors.white,
             fontWeight: 500,
             textDecoration: "underline",
@@ -283,6 +286,7 @@ export default function PricingSection() {
           }}>Click here to book a call</a>.
         </p>
       </div>
+      {showDemoModal && <DemoModal onClose={() => setShowDemoModal(false)} />}
     </div>
   );
 }

@@ -1,4 +1,8 @@
+import { useState } from "react";
+import DemoModal from "./DemoModal";
+
 export default function Footer() {
+  const [showDemoModal, setShowDemoModal] = useState(false);
   const tokens = {
     colors: {
       primary: "#15141A",
@@ -76,9 +80,9 @@ export default function Footer() {
                 marginBottom: "16px",
               }}>Company</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <a href="#" className="footer-link" style={linkStyle}>Pricing</a>
-                <a href="#" className="footer-link" style={linkStyle}>Case Studies</a>
-                <a href="#" className="footer-link" style={linkStyle}>Contact</a>
+                <a href="#pricing" className="footer-link" style={linkStyle}>Pricing</a>
+                <a href="#results" className="footer-link" style={linkStyle}>Case Studies</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); setShowDemoModal(true); }} className="footer-link" style={linkStyle}>Contact</a>
               </div>
             </div>
             {/* Legal */}
@@ -114,6 +118,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {showDemoModal && <DemoModal onClose={() => setShowDemoModal(false)} />}
     </footer>
   );
 }

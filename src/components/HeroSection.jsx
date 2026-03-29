@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { tokens } from "../design-system/tokens";
+import DemoModal from "./DemoModal";
 
 const clientLogos = [
   { name: "The Outloud Group", src: "/logos/the-outloud-group.svg" },
@@ -113,22 +114,6 @@ function ReachCard({ top, left, right, value, delay, scale = 1 }) {
 export default function HeroSection() {
   const [hoveredBtn, setHoveredBtn] = useState(null);
   const [showDemoModal, setShowDemoModal] = useState(false);
-
-  useEffect(() => {
-    if (showDemoModal) {
-      document.body.style.overflow = "hidden";
-      const script = document.createElement("script");
-      script.src = "https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js";
-      script.async = true;
-      document.body.appendChild(script);
-      return () => {
-        document.body.style.overflow = "";
-        document.body.removeChild(script);
-      };
-    } else {
-      document.body.style.overflow = "";
-    }
-  }, [showDemoModal]);
 
   return (
     <>
@@ -269,6 +254,7 @@ export default function HeroSection() {
 
             <div className="hero-fade-5 hero-cta-row" style={{ marginTop: "36px", display: "flex", gap: "16px", alignItems: "center" }}>
               <button
+                onClick={() => setShowDemoModal(true)}
                 onMouseEnter={(e) => { setHoveredBtn("primary"); e.target.style.transform = "translateY(-1px)"; e.target.style.boxShadow = "0 4px 12px rgba(0,0,0,0.3)"; }}
                 onMouseLeave={(e) => { setHoveredBtn(null); e.target.style.transform = ""; e.target.style.boxShadow = ""; }}
                 style={{
@@ -409,55 +395,7 @@ export default function HeroSection() {
       </div>
     </div>
 
-      {/* HubSpot Demo Modal */}
-      {showDemoModal && (
-        <div
-          onClick={() => setShowDemoModal(false)}
-          style={{
-            position: "fixed", inset: 0, zIndex: 9999,
-            background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            animation: "demoModalFadeIn 0.2s ease",
-          }}
-        >
-          <style>{`
-            @keyframes demoModalFadeIn { from { opacity: 0; } to { opacity: 1; } }
-            @keyframes demoModalSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-          `}</style>
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{
-              background: tokens.colors.white, borderRadius: "16px",
-              width: "90%", maxWidth: "700px", maxHeight: "90vh",
-              overflow: "hidden", position: "relative",
-              animation: "demoModalSlideUp 0.25s ease",
-              display: "flex", flexDirection: "column",
-            }}
-          >
-            <div style={{
-              display: "flex", justifyContent: "space-between", alignItems: "center",
-              padding: "20px 24px", borderBottom: `1px solid ${tokens.colors.grayLight}`,
-            }}>
-              <h3 style={{ margin: 0, fontSize: "18px", fontWeight: 700, color: tokens.colors.textOnLight, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                Book a Demo
-              </h3>
-              <button
-                onClick={() => setShowDemoModal(false)}
-                style={{
-                  background: "none", border: "none", cursor: "pointer",
-                  fontSize: "24px", color: tokens.colors.grayDark, lineHeight: 1,
-                }}
-              >&times;</button>
-            </div>
-            <div style={{ flex: 1, overflow: "auto", padding: "24px" }}>
-              <div
-                className="meetings-iframe-container"
-                data-src="https://meetings.hubspot.com/pcarrell/new?embed=true"
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      {showDemoModal && <DemoModal onClose={() => setShowDemoModal(false)} />}
     </>
   );
 }
