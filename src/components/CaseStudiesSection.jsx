@@ -445,9 +445,13 @@ export default function CaseStudiesSection() {
     };
     el.addEventListener("touchstart", pause, { passive: true });
     el.addEventListener("mousedown", pause);
+    el.addEventListener("mouseenter", () => { autoScrollPaused.current = true; });
+    el.addEventListener("mouseleave", () => { autoScrollPaused.current = false; });
     return () => {
       el.removeEventListener("touchstart", pause);
       el.removeEventListener("mousedown", pause);
+      el.removeEventListener("mouseenter", () => { autoScrollPaused.current = true; });
+      el.removeEventListener("mouseleave", () => { autoScrollPaused.current = false; });
       clearTimeout(resumeTimer);
     };
   }, []);
