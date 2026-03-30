@@ -168,7 +168,7 @@ export default function HeroSection() {
           .hero-h1 { font-size: 32px !important; }
           .hero-cta-row { flex-direction: column !important; }
           .hero-cta-row button, .hero-cta-row a { width: 100% !important; text-align: center !important; }
-          .hero-trust-bar { padding: 8px 14px !important; gap: 6px !important; font-size: 12px !important; }
+          .hero-trust-bar { padding: 8px 14px !important; gap: 6px !important; font-size: 12px !important; width: 100% !important; justify-content: center !important; box-sizing: border-box !important; display: flex !important; }
           .hero-trust-bar span { font-size: 11px !important; }
           .hero-trust-bar .hero-star { font-size: 11px !important; }
         }
