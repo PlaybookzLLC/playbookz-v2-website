@@ -124,6 +124,7 @@ function PricingCard({ name, tagline, price, features, prefix, cta, highlighted,
       <div style={{
         display: "flex",
         alignItems: "baseline",
+        flexWrap: "nowrap",
         gap: "6px",
         marginBottom: "32px",
       }}>
