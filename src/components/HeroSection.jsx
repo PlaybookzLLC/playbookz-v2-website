@@ -114,6 +114,14 @@ function ReachCard({ top, left, right, value, delay, scale = 1 }) {
 export default function HeroSection() {
   const [hoveredBtn, setHoveredBtn] = useState(null);
   const [showDemoModal, setShowDemoModal] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navItems = [
+    { label: "Prices", href: "#pricing" },
+    { label: "Case Studies", href: "#results" },
+    { label: "How it Works", href: "#how-it-works" },
+    { label: "FAQ", href: "#faq" },
+  ];
 
   return (
     <>
@@ -152,16 +160,19 @@ export default function HeroSection() {
           .hero-right { display: none !important; }
           .hero-h1 { font-size: 40px !important; }
         }
-        @media (max-width: 639px) {
+        @media (max-width: 767px) {
+          .hero-nav { padding: 20px 24px !important; }
+          .hero-desktop-links { display: none !important; }
+          .hero-hamburger { display: flex !important; }
           .hero-section-inner { padding: 64px 24px !important; }
           .hero-h1 { font-size: 32px !important; }
           .hero-cta-row { flex-direction: column !important; }
-          .hero-cta-row button { width: 100% !important; }
+          .hero-cta-row button, .hero-cta-row a { width: 100% !important; text-align: center !important; }
         }
       `}</style>
 
       {/* NAV */}
-      <nav style={{
+      <nav className="hero-nav" style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
         padding: "20px 64px", maxWidth: "1200px", margin: "0 auto",
         position: "relative", zIndex: 50,
@@ -169,14 +180,10 @@ export default function HeroSection() {
         <div style={{ fontSize: "24px", fontWeight: 800, letterSpacing: "-0.03em", color: tokens.colors.white }}>
           playbook<span style={{ color: tokens.colors.accent }}>z</span>
         </div>
-        <div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
-          {[
-            { label: "Prices", href: "#pricing" },
-            { label: "Case Studies", href: "#results" },
-            { label: "How it Works", href: "#how-it-works" },
-            { label: "FAQ", href: "#faq" },
-          ].map((item) => (
-            <a key={item.label} href={item.href} onClick={item.onClick} style={{
+        {/* Desktop nav */}
+        <div className="hero-desktop-links" style={{ display: "flex", gap: "32px", alignItems: "center" }}>
+          {navItems.map((item) => (
+            <a key={item.label} href={item.href} style={{
               fontSize: "15px", fontWeight: 500, color: tokens.colors.textOnDarkMuted,
               textDecoration: "none", transition: "color 0.15s ease",
             }}
@@ -192,7 +199,54 @@ export default function HeroSection() {
             transition: "all 0.15s ease",
           }}>Get Demo</button>
         </div>
+        {/* Hamburger button — mobile only */}
+        <button
+          className="hero-hamburger"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          style={{
+            display: "none", background: "none", border: "none", cursor: "pointer",
+            padding: "8px", alignItems: "center", justifyContent: "center",
+          }}
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            {mobileMenuOpen ? (
+              <path d="M6 6L18 18M18 6L6 18" stroke={tokens.colors.white} strokeWidth="2" strokeLinecap="round" />
+            ) : (
+              <>
+                <path d="M4 7h16" stroke={tokens.colors.white} strokeWidth="2" strokeLinecap="round" />
+                <path d="M4 12h16" stroke={tokens.colors.white} strokeWidth="2" strokeLinecap="round" />
+                <path d="M4 17h16" stroke={tokens.colors.white} strokeWidth="2" strokeLinecap="round" />
+              </>
+            )}
+          </svg>
+        </button>
       </nav>
+      {/* Mobile menu overlay */}
+      {mobileMenuOpen && (
+        <div style={{
+          position: "absolute", top: "64px", left: 0, right: 0, zIndex: 100,
+          background: tokens.colors.primary,
+          borderTop: `1px solid rgba(255,255,255,0.08)`,
+          padding: "24px",
+          display: "flex", flexDirection: "column", gap: "16px",
+          animation: "fadeInUp 0.2s ease both",
+        }}>
+          {navItems.map((item) => (
+            <a key={item.label} href={item.href} onClick={() => setMobileMenuOpen(false)} style={{
+              fontSize: "16px", fontWeight: 600, color: tokens.colors.white,
+              textDecoration: "none", padding: "8px 0",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+            }}>{item.label}</a>
+          ))}
+          <button onClick={() => { setMobileMenuOpen(false); setShowDemoModal(true); }} style={{
+            background: tokens.colors.accent, color: tokens.colors.textOnAccent,
+            border: "none", borderRadius: "999px",
+            padding: "14px 24px", fontSize: "15px", fontWeight: 700,
+            fontFamily: "'Plus Jakarta Sans', sans-serif", cursor: "pointer",
+            marginTop: "8px",
+          }}>Get Demo</button>
+        </div>
+      )}
 
       {/* HERO CONTENT */}
       <div className="hero-section-inner" style={{
