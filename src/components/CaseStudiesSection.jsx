@@ -447,6 +447,7 @@ export default function CaseStudiesSection() {
 
   return (
     <section
+      className="cs-section"
       id="results"
       style={{
         fontFamily: tokens.typography.bodyFont,
@@ -468,6 +469,9 @@ export default function CaseStudiesSection() {
         .cs-scroll-track { -ms-overflow-style: none; scrollbar-width: none; }
         @media (max-width: 768px) {
           .cs-heading-row { flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; }
+          .cs-section { padding-top: 60px !important; }
+          .cs-heading-row h2 { font-size: 28px !important; }
+          .cs-heading-row p { font-size: 14px !important; }
         }
       `}</style>
 
