@@ -168,6 +168,9 @@ export default function HeroSection() {
           .hero-h1 { font-size: 32px !important; }
           .hero-cta-row { flex-direction: column !important; }
           .hero-cta-row button, .hero-cta-row a { width: 100% !important; text-align: center !important; }
+          .hero-trust-bar { padding: 8px 14px !important; gap: 6px !important; font-size: 12px !important; }
+          .hero-trust-bar span { font-size: 11px !important; }
+          .hero-trust-bar .hero-star { font-size: 11px !important; }
         }
       `}</style>
 
@@ -288,17 +291,18 @@ export default function HeroSection() {
               ))}
             </div>
 
-            <div className="hero-fade-4" style={{
+            <div className="hero-fade-4 hero-trust-bar" style={{
               marginTop: "32px", display: "inline-flex", alignItems: "center", gap: "8px",
               background: tokens.colors.primaryMuted, borderRadius: "999px",
               padding: "10px 20px", border: `1px solid ${tokens.colors.cardDarkBorder}`,
+              whiteSpace: "nowrap",
             }}>
               <span style={{ fontSize: "14px", fontWeight: 700, color: tokens.colors.white, marginRight: "2px" }}>
-                Rated <span>4.9/5</span>
+                Rated 4.9/5
               </span>
               <div style={{ display: "flex", gap: "2px" }}>
                 {[1,2,3,4,5].map(i => (
-                  <span key={i} style={{ color: "#E8880A", fontSize: "15px" }}>★</span>
+                  <span key={i} className="hero-star" style={{ color: "#E8880A", fontSize: "15px" }}>★</span>
                 ))}
               </div>
               <span style={{ fontSize: "14px", color: tokens.colors.textOnDarkMuted }}>
