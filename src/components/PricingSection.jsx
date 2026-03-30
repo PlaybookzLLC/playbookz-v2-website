@@ -128,7 +128,7 @@ function PricingCard({ name, tagline, price, features, prefix, cta, highlighted,
         gap: "6px",
         marginBottom: "32px",
       }}>
-        <span style={{
+        <span className="pricing-price" style={{
           fontSize: "56px",
           fontWeight: 800,
           letterSpacing: "-0.04em",
@@ -230,6 +230,7 @@ export default function PricingSection() {
           .pricing-section-inner { padding: 64px 24px !important; }
           .pricing-heading { font-size: 32px !important; }
           .pricing-grid { flex-direction: column !important; }
+          .pricing-price { font-size: 42px !important; }
         }
       `}</style>
       <div className="pricing-section-inner" style={{
