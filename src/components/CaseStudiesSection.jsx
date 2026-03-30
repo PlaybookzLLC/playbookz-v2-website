@@ -407,6 +407,7 @@ export default function CaseStudiesSection() {
   const [activeModal, setActiveModal] = useState(null);
   const scrollRef = useRef(null);
   const isResetting = useRef(false);
+  const autoScrollPaused = useRef(false);
 
   // Triple the cards for infinite illusion
   const tripled = [...caseStudies, ...caseStudies, ...caseStudies];
@@ -417,6 +418,36 @@ export default function CaseStudiesSection() {
     if (scrollRef.current) {
       scrollRef.current.scrollLeft = caseStudies.length * cardWidth;
     }
+  }, []);
+
+  // Auto-scroll slowly
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const interval = setInterval(() => {
+      if (autoScrollPaused.current || isResetting.current) return;
+      el.scrollLeft += 1;
+    }, 30);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Pause auto-scroll on touch, resume after delay
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    let resumeTimer;
+    const pause = () => {
+      autoScrollPaused.current = true;
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { autoScrollPaused.current = false; }, 3000);
+    };
+    el.addEventListener("touchstart", pause, { passive: true });
+    el.addEventListener("mousedown", pause);
+    return () => {
+      el.removeEventListener("touchstart", pause);
+      el.removeEventListener("mousedown", pause);
+      clearTimeout(resumeTimer);
+    };
   }, []);
 
   // When scroll reaches near edges, jump to the middle set
@@ -479,6 +510,7 @@ export default function CaseStudiesSection() {
           .cs-card h3 { font-size: 16px !important; }
           .cs-card .cs-card-desc { font-size: 13px !important; }
           .cs-card-screenshot { height: 160px !important; }
+          .cs-arrow { display: none !important; }
         }
       `}</style>
 
@@ -515,7 +547,8 @@ export default function CaseStudiesSection() {
         <div style={{ position: "relative" }}>
           {/* Left arrow */}
           <button
-            onClick={() => scroll("left")}
+            className="cs-arrow"
+            onClick={() => { autoScrollPaused.current = true; setTimeout(() => { autoScrollPaused.current = false; }, 3000); scroll("left"); }}
             style={{
               position: "absolute",
               left: "-24px",
@@ -542,7 +575,8 @@ export default function CaseStudiesSection() {
 
           {/* Right arrow */}
           <button
-            onClick={() => scroll("right")}
+            className="cs-arrow"
+            onClick={() => { autoScrollPaused.current = true; setTimeout(() => { autoScrollPaused.current = false; }, 3000); scroll("right"); }}
             style={{
               position: "absolute",
               right: "-24px",
