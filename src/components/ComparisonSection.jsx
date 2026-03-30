@@ -203,6 +203,8 @@ export default function ComparisonSection() {
           .guarantee-card { padding: 32px 24px !important; }
           .guarantee-inner { flex-direction: column !important; gap: 24px !important; }
           .guarantee-divider { display: none !important; }
+          .comp-trust-strip { padding: 8px 20px !important; gap: 10px !important; }
+          .comp-trust-strip span { font-size: 11px !important; }
         }
       `}</style>
       <div className="comp-section-inner" style={{
@@ -415,7 +417,7 @@ export default function ComparisonSection() {
             </div>
           </div>
           {/* Trust strip */}
-          <div style={{
+          <div className="comp-trust-strip" style={{
             position: "absolute",
             bottom: "4px",
             left: "50%",
