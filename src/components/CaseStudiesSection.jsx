@@ -176,6 +176,7 @@ function CaseStudyModal({ study, onClose }) {
         {/* Screenshot area with padding */}
         <div style={{ padding: "24px 24px 0" }}>
           <div
+            className="cs-modal-screenshot"
             style={{
               width: "100%",
               height: "320px",
@@ -206,6 +207,7 @@ function CaseStudyModal({ study, onClose }) {
 
         {/* Metadata row */}
         <div
+          className="cs-modal-meta"
           style={{
             display: "flex",
             alignItems: "center",
@@ -511,6 +513,9 @@ export default function CaseStudiesSection() {
           .cs-card .cs-card-desc { font-size: 13px !important; }
           .cs-card-screenshot { height: 160px !important; }
           .cs-arrow { display: none !important; }
+          .cs-modal-screenshot { height: 180px !important; }
+          .cs-modal-meta { gap: 8px !important; flex-wrap: wrap !important; }
+          .cs-modal-meta span { font-size: 12px !important; }
         }
       `}</style>
 
