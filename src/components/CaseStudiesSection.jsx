@@ -268,6 +268,7 @@ function CaseStudyCard({ study, onClick }) {
 
   return (
     <div
+      className="cs-card"
       onClick={() => onClick(study)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -292,6 +293,7 @@ function CaseStudyCard({ study, onClick }) {
       {/* Screenshot area — padded with whitespace */}
       <div style={{ padding: "20px 20px 0" }}>
         <div
+          className="cs-card-screenshot"
           style={{
             width: "100%",
             height: "200px",
@@ -349,6 +351,7 @@ function CaseStudyCard({ study, onClick }) {
 
         {/* Description */}
         <p
+          className="cs-card-desc"
           style={{
             fontSize: "14px",
             lineHeight: 1.6,
@@ -472,6 +475,10 @@ export default function CaseStudiesSection() {
           .cs-section { padding-top: 60px !important; }
           .cs-heading-row h2 { font-size: 28px !important; }
           .cs-heading-row p { font-size: 14px !important; }
+          .cs-card { width: calc(100vw - 80px) !important; min-width: 0 !important; }
+          .cs-card h3 { font-size: 16px !important; }
+          .cs-card .cs-card-desc { font-size: 13px !important; }
+          .cs-card-screenshot { height: 160px !important; }
         }
       `}</style>
 
