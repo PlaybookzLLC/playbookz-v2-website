@@ -74,6 +74,18 @@ const caseStudies = [
     fullContent:
       "dofollow.com is a vertical agency that came to us looking to use LinkedIn as a real pipeline channel, not just a brand awareness play.\n\nWe developed a style that leaned heavily on driving measurable business outcomes. Their sales team integrated closely with us, collaborating on campaign launches so they could follow up on conversations while the content was still warm. That coordination between content and sales made a huge difference.\n\nThe results speak for themselves. They opened doors with companies like Adobe, Squarespace, Zillow, and Wix, and signed Experian, a $7 billion company, with LinkedIn playing a direct role in that deal.\n\nThe Results:\n\n500,000+ impressions — in the last 12 months\n6,000+ leads — generated through LinkedIn content\n$500k+ in new contract revenue — including enterprise deals like Experian",
   },
+  {
+    id: 7,
+    title: "How a Pocket Capital Portfolio Company Hit 539k Impressions and Unlocked a New Category of Clients",
+    description:
+      "A digital services business backed by Pocket Capital used a custom LinkedIn strategy to open doors with billion-dollar companies and unlock an entirely new category of clients.",
+    stat: "539k",
+    statLabel: "impressions",
+    category: "Digital Services",
+    screenshot: "/case-study-7.png",
+    fullContent:
+      "This is a digital services business backed by Pocket Capital. We helped their founder build a LinkedIn presence using a custom, pretty innovative strategy that we developed specifically for their space.\n\nWe worked directly with the founder but also integrated closely with their marketing and sales teams so we weren't eating up too much of his time. That three-way collaboration let us move fast without the founder becoming a bottleneck.\n\nThe content opened doors they didn't have access to before. In their own words, LinkedIn unlocked an entirely new category of clients for them. They went from not being in the room with billion-dollar companies to actively having those conversations, driven directly by the campaigns we ran together.\n\nThe Results:\n\n539,050 impressions — +132% vs. prior year\n200%+ follower growth — over the engagement period\nNew client category unlocked — conversations opened with billion-dollar companies",
+  },
 ];
 
 const BookIcon = ({ hovered } = {}) => {
