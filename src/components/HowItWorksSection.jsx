@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 const tokens = {
   colors: {
     primary: "#15141A",
@@ -124,70 +124,154 @@ function StepItem({ num, title, desc, isLast, isActive, onHover }) {
   );
 }
 /* --- Video Card --- */
+const VIDEO_SRC = "/Unlocking LinkedIn_ Strategies for B2B Success and Lead Generation.mp4";
+
 function VideoCard() {
+  const [showModal, setShowModal] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const thumbRef = useRef(null);
+
+  // Seek to middle of video for thumbnail
+  useEffect(() => {
+    const vid = thumbRef.current;
+    if (!vid) return;
+    const onMeta = () => { vid.currentTime = vid.duration / 2; };
+    vid.addEventListener("loadedmetadata", onMeta);
+    return () => vid.removeEventListener("loadedmetadata", onMeta);
+  }, []);
+
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        borderRadius: "5px",
-        overflow: "hidden",
-        width: "100%",
-        boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
-        border: `1px solid ${tokens.colors.cardDarkBorder}`,
-        height: "100%",
-      }}
-    >
-      {/* Video area */}
-      <div style={{
-        position: "relative",
-        background: tokens.colors.primary,
-        flex: 1,
-        minHeight: "280px",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}>
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
+    <>
+      <div
+        onClick={() => setShowModal(true)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          borderRadius: "5px",
+          overflow: "hidden",
+          width: "100%",
+          boxShadow: hovered ? "0 8px 32px rgba(0,0,0,0.4)" : "0 4px 16px rgba(0,0,0,0.2)",
+          border: `1px solid ${tokens.colors.cardDarkBorder}`,
+          height: "100%",
+          cursor: "pointer",
+          transition: "all 0.2s ease",
+          transform: hovered ? "translateY(-2px)" : "none",
+        }}
+      >
+        {/* Thumbnail area */}
+        <div style={{
+          position: "relative",
+          background: tokens.colors.primary,
+          flex: 1,
+          minHeight: "280px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+          <video
+            ref={thumbRef}
+            muted
+            playsInline
+            preload="metadata"
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          >
+            <source src={VIDEO_SRC} type="video/mp4" />
+          </video>
+          {/* Play button */}
+          <div style={{
+            width: "72px",
+            height: "72px",
+            borderRadius: "50%",
+            background: tokens.colors.accent,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
+            zIndex: 2,
+            boxShadow: "0 4px 24px rgba(0,0,0,0.3)",
+            transition: "transform 0.2s ease",
+            transform: hovered ? "scale(1.08)" : "scale(1)",
+          }}>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+              <path d="M8 5.5L19 12L8 18.5V5.5Z" fill={tokens.colors.primary} />
+            </svg>
+          </div>
+        </div>
+        {/* Video info bar */}
+        <div style={{
+          background: tokens.colors.cardDark,
+          padding: "20px 24px",
+          borderTop: `1px solid ${tokens.colors.cardDarkBorder}`,
+        }}>
+          <div style={{
+            fontSize: "13px",
+            fontWeight: 600,
+            textTransform: "uppercase",
+            letterSpacing: "0.06em",
+            color: tokens.colors.accent,
+            marginBottom: "6px",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+          }}>Watch Explainer</div>
+          <div style={{
+            fontSize: "16px",
+            fontWeight: 600,
+            color: tokens.colors.white,
+            lineHeight: 1.4,
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+          }}>See how we scale your LinkedIn in under 2 minutes</div>
+        </div>
+      </div>
+
+      {/* Video Modal */}
+      {showModal && (
+        <div
+          onClick={() => setShowModal(false)}
           style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
+            position: "fixed", inset: 0, zIndex: 9999,
+            background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "24px",
+            animation: "fadeInUp 0.2s ease both",
           }}
         >
-          <source src="/Unlocking LinkedIn_ Strategies for B2B Success and Lead Generation.mp4" type="video/mp4" />
-        </video>
-      </div>
-      {/* Video info bar */}
-      <div style={{
-        background: tokens.colors.cardDark,
-        padding: "20px 24px",
-        borderTop: `1px solid ${tokens.colors.cardDarkBorder}`,
-      }}>
-        <div style={{
-          fontSize: "13px",
-          fontWeight: 600,
-          textTransform: "uppercase",
-          letterSpacing: "0.06em",
-          color: tokens.colors.accent,
-          marginBottom: "6px",
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-        }}>Watch Explainer</div>
-        <div style={{
-          fontSize: "16px",
-          fontWeight: 600,
-          color: tokens.colors.white,
-          lineHeight: 1.4,
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-        }}>See how we scale your LinkedIn in under 2 minutes</div>
-      </div>
-    </div>
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              width: "90%", maxWidth: "900px",
+              borderRadius: "12px", overflow: "hidden",
+              position: "relative",
+              background: "#000",
+            }}
+          >
+            <button
+              onClick={() => setShowModal(false)}
+              style={{
+                position: "absolute", top: "12px", right: "12px", zIndex: 10,
+                background: "rgba(0,0,0,0.6)", border: "none", borderRadius: "50%",
+                width: "36px", height: "36px", display: "flex", alignItems: "center",
+                justifyContent: "center", cursor: "pointer", color: "#fff", fontSize: "20px",
+              }}
+            >&times;</button>
+            <video
+              autoPlay
+              controls
+              playsInline
+              style={{ width: "100%", display: "block" }}
+            >
+              <source src={VIDEO_SRC} type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 /* --- Main Section --- */
