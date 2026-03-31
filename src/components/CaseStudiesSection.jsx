@@ -579,7 +579,7 @@ export default function CaseStudiesSection() {
           .cs-heading-row h2 { font-size: 28px !important; }
           .cs-heading-row p { font-size: 14px !important; }
           .cs-card { width: calc(100vw - 80px) !important; min-width: 0 !important; }
-          .cs-card h3 { font-size: 16px !important; }
+          .cs-card h3 { font-size: 14px !important; }
           .cs-card .cs-card-desc { font-size: 13px !important; }
           .cs-card-screenshot { height: 160px !important; }
           .cs-arrow { display: none !important; }
