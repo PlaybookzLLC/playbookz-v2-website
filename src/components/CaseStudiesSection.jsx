@@ -60,7 +60,7 @@ const caseStudies = [
     category: "Agency",
     screenshot: "/case-study-5.png",
     fullContent:
-      "This founder ran one of the top influencer agencies in the country, working with major household brands and A-list talent.\n\nHe had a very distinct voice: honest, vulnerable, no corporate polish. That gave us something real to build around. We leaned into his personal POV, paired it with proprietary industry data his team was already sitting on, and made his people a core part of the content strategy.\n\nFor an agency where every deal was relationship-driven, the content helped build familiarity and trust with prospects before sales conversations even started.\n\nThe Results:\n\n151,918 impressions — +1,124% vs. previous period\n2,807 engagements — +100% vs. previous period\n2,401 followers — from near zero\n772 profile views — +100% vs. previous period",
+      "This founder ran one of the top influencer agencies in the country, working with major household brands and A-list talent.\n\nHe had a very distinct voice: honest, vulnerable, no corporate polish. That gave us something real to build around. We leaned into his personal POV, paired it with proprietary industry data his team was already sitting on, and made his people a core part of the content strategy.\n\nFor an agency where every deal was relationship-driven, the content helped build familiarity and trust with prospects before sales conversations even started.\n\nThe Results:\n\n151,918 impressions — +1,124% vs. previous period\n2,401 followers — from near zero",
   },
 ];
 
