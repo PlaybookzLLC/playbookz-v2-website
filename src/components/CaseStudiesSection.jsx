@@ -82,7 +82,7 @@ const caseStudies = [
     stat: "539k",
     statLabel: "impressions",
     category: "Digital Services",
-    screenshot: "/case-study-7.png",
+    screenshot: "/case study 7.png",
     fullContent:
       "This is a digital services business backed by Pocket Capital. We helped their founder build a LinkedIn presence using a custom, pretty innovative strategy that we developed specifically for their space.\n\nWe worked directly with the founder but also integrated closely with their marketing and sales teams so we weren't eating up too much of his time. That three-way collaboration let us move fast without the founder becoming a bottleneck.\n\nThe content opened doors they didn't have access to before. In their own words, LinkedIn unlocked an entirely new category of clients for them. They went from not being in the room with billion-dollar companies to actively having those conversations, driven directly by the campaigns we ran together.\n\nThe Results:\n\n539,050 impressions — +132% vs. prior year\n200%+ follower growth — over the engagement period\nNew client category unlocked — conversations opened with billion-dollar companies",
   },
