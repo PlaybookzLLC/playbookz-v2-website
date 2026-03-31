@@ -5,6 +5,7 @@ import DemoModal from "./DemoModal";
 export default function Footer() {
   const [showDemoModal, setShowDemoModal] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
   const tokens = {
     colors: {
       primary: "#15141A",
@@ -99,7 +100,7 @@ export default function Footer() {
               }}>Legal</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <a href="#" onClick={(e) => { e.preventDefault(); setShowTerms(true); }} className="footer-link" style={linkStyle}>Terms of Service</a>
-                <a href="#" className="footer-link" style={linkStyle}>Privacy Policy</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); setShowPrivacy(true); }} className="footer-link" style={linkStyle}>Privacy Policy</a>
               </div>
             </div>
           </div>
@@ -162,6 +163,58 @@ export default function Footer() {
               { title: "7. Limitation of Liability", body: "Playbookz is not liable for any indirect, incidental, or consequential damages arising from your use of this website." },
               { title: "8. Changes to Terms", body: "We reserve the right to update these terms at any time. Continued use of the site after changes constitutes acceptance of the revised terms." },
               { title: "9. Contact", body: "Playbookz, 611 South DuPont Highway, Dover, DE 19901" },
+            ].map((section, i) => (
+              <div key={i} style={{ marginBottom: "20px" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: 700, margin: "0 0 6px 0" }}>{section.title}</h3>
+                <p style={{ fontSize: "14px", lineHeight: 1.6, color: "#6B6B6F", margin: 0 }}>{section.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>,
+        document.body
+      )}
+      {showPrivacy && createPortal(
+        <div
+          onClick={() => setShowPrivacy(false)}
+          style={{
+            position: "fixed", inset: 0, zIndex: 9999,
+            background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "24px",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: "#fff", borderRadius: "16px",
+              width: "90%", maxWidth: "680px", maxHeight: "85vh",
+              overflow: "auto", position: "relative",
+              padding: "40px",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              color: "#15141A",
+            }}
+          >
+            <button
+              onClick={() => setShowPrivacy(false)}
+              style={{
+                position: "absolute", top: "16px", right: "16px",
+                background: "none", border: "none", cursor: "pointer",
+                fontSize: "24px", color: "#6B6B6F", lineHeight: 1,
+              }}
+            >&times;</button>
+            <h2 style={{ fontSize: "24px", fontWeight: 800, margin: "0 0 4px 0" }}>Privacy Policy</h2>
+            <p style={{ fontSize: "13px", color: "#6B6B6F", margin: "0 0 24px 0" }}>Last updated: March 31, 2026</p>
+            {[
+              { title: "1. Overview", body: "This Privacy Policy describes how Playbookz (\u201Cwe,\u201D \u201Cus,\u201D \u201Cour\u201D) collects, uses, and protects information when you visit playbookz.com." },
+              { title: "2. Information We Collect", body: "We may collect information you voluntarily provide, such as your name, email address, phone number, and company name when you fill out a form or book a call. We also automatically collect certain technical data such as browser type, device information, and pages visited through cookies and similar technologies." },
+              { title: "3. How We Use Your Information", body: "We use collected information to respond to inquiries, deliver our services, communicate with you about our offerings, and improve the website experience. We do not sell your personal information to third parties." },
+              { title: "4. Cookies", body: "This site uses cookies to analyze traffic and improve your experience. You can control cookie preferences through your browser settings." },
+              { title: "5. Third-Party Services", body: "We may use third-party tools for analytics, scheduling, and communication (such as Google Analytics, Calendly, or similar services). These providers have their own privacy policies governing how they handle your data." },
+              { title: "6. Data Retention", body: "We retain your information only as long as necessary to fulfill the purposes described in this policy or as required by law." },
+              { title: "7. Your Rights", body: "You may request access to, correction of, or deletion of your personal information by contacting us. If you are a resident of California, the EU, or other jurisdictions with specific data privacy laws, you may have additional rights under those regulations." },
+              { title: "8. Security", body: "We take reasonable measures to protect your information, but no method of transmission over the internet is completely secure." },
+              { title: "9. Changes to This Policy", body: "We may update this policy at any time. Changes will be posted on this page with an updated date." },
+              { title: "10. Contact", body: "Playbookz, 611 South DuPont Highway, Dover, DE 19901" },
             ].map((section, i) => (
               <div key={i} style={{ marginBottom: "20px" }}>
                 <h3 style={{ fontSize: "16px", fontWeight: 700, margin: "0 0 6px 0" }}>{section.title}</h3>
