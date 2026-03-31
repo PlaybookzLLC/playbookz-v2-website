@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { tokens } from "../design-system/tokens";
 
-const caseStudies = [
+const caseStudiesUnordered = [
   {
     id: 1,
     title: "How a Community Founder Hit 144k Impressions by Breaking Every LinkedIn Rule",
@@ -87,6 +87,9 @@ const caseStudies = [
       "This is a digital services business backed by Pocket Capital. We helped their founder build a LinkedIn presence using a custom, pretty innovative strategy that we developed specifically for their space.\n\nWe worked directly with the founder but also integrated closely with their marketing and sales teams so we weren't eating up too much of his time. That three-way collaboration let us move fast without the founder becoming a bottleneck.\n\nThe content opened doors they didn't have access to before. In their own words, LinkedIn unlocked an entirely new category of clients for them. They went from not being in the room with billion-dollar companies to actively having those conversations, driven directly by the campaigns we ran together.\n\nThe Results:\n\n539,050 impressions — +132% vs. prior year\n200%+ follower growth — over the engagement period\nNew client category unlocked — conversations opened with billion-dollar companies",
   },
 ];
+
+// Order: Pocket Capital first, dofollow fourth
+const caseStudies = [7, 1, 2, 6, 3, 4, 5].map(id => caseStudiesUnordered.find(s => s.id === id));
 
 const BookIcon = ({ hovered } = {}) => {
   const strokeColor = hovered ? "#A0A0A5" : "#64748B";
