@@ -40,15 +40,15 @@ const caseStudies = [
   },
   {
     id: 4,
-    title: "Turning a Fintech Founder into a Top Voice with 200k+ Reach",
+    title: "How a Technical SaaS Founder Hit 322k Impressions and Used LinkedIn to Open Doors for Fundraising",
     description:
-      "Strategic content positioning helped a fintech founder become a recognized thought leader, driving both hiring and sales.",
-    stat: "200k+",
-    statLabel: "monthly reach",
-    category: "B2B SaaS",
+      "A highly technical enterprise SaaS founder used LinkedIn to build credibility, open doors at conferences, and support fundraising conversations.",
+    stat: "322k",
+    statLabel: "impressions",
+    category: "Enterprise SaaS",
     screenshot: "/case-study-4.png",
     fullContent:
-      "In a crowded fintech market, standing out matters. We crafted a narrative arc for this founder — from bootstrapping stories to industry analysis — that resonated with both potential customers and top-tier engineering talent. The result: 200k+ monthly impressions, 3 key hires sourced directly from LinkedIn, and a 40% increase in inbound sales conversations.",
+      "This was a highly technical enterprise SaaS company where the product and the space required serious depth. We couldn't phone it in on the content. We had to learn the domain inside and out to write anything credible.\n\nWe got deep enough into the technical details that the founder started leaning on us beyond just content. She would send us conversations she was having and ask us to research topics and help inform her point of view. The content we produced reflected that level of depth, which resonated with a very specific, senior audience.\n\nBeyond the top-of-funnel numbers, LinkedIn became a tool she used to open doors at conferences and support fundraising conversations. Investors and potential partners were seeing her content before meetings, which gave her a real edge in rooms where credibility matters.\n\nThe Results:\n\n322,558 impressions — +162% vs. previous period\n10,594 followers — +31% vs. previous period\n4,454 profile views — +31% vs. previous period\nFundraising support — LinkedIn presence helped warm investor and partner conversations",
   },
   {
     id: 5,
