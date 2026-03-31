@@ -125,30 +125,20 @@ function StepItem({ num, title, desc, isLast, isActive, onHover }) {
 }
 /* --- Video Card --- */
 function VideoCard() {
-  const [hovered, setHovered] = useState(false);
   return (
-    <a
-      href={LOOM_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+    <div
       style={{
         display: "flex",
         flexDirection: "column",
         borderRadius: "5px",
         overflow: "hidden",
-        textDecoration: "none",
-        color: "inherit",
         width: "100%",
-        transition: "all 0.2s ease",
-        transform: hovered ? "translateY(-2px)" : "none",
-        boxShadow: hovered ? "0 8px 32px rgba(0,0,0,0.4)" : "0 4px 16px rgba(0,0,0,0.2)",
-        border: `1px solid ${hovered ? "rgba(255,255,255,0.12)" : tokens.colors.cardDarkBorder}`,
+        boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
+        border: `1px solid ${tokens.colors.cardDarkBorder}`,
         height: "100%",
       }}
     >
-      {/* Video preview area */}
+      {/* Video area */}
       <div style={{
         position: "relative",
         background: tokens.colors.primary,
@@ -158,48 +148,21 @@ function VideoCard() {
         alignItems: "center",
         justifyContent: "center",
       }}>
-        {/* Thumbnail image */}
-        <div style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: "url(/dofollow-testimonial-thumbnail.png)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          pointerEvents: "none",
-        }} />
-        {/* Play button */}
-        <div style={{
-          width: "72px",
-          height: "72px",
-          borderRadius: "50%",
-          background: tokens.colors.accent,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          transition: "transform 0.2s ease",
-          transform: hovered ? "scale(1.08)" : "scale(1)",
-          position: "relative",
-          zIndex: 2,
-          boxShadow: "0 4px 24px rgba(0,0,0,0.3)",
-        }}>
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-            <path d="M8 5.5L19 12L8 18.5V5.5Z" fill={tokens.colors.primary} />
-          </svg>
-        </div>
-        {/* Duration badge */}
-        <div style={{
-          position: "absolute",
-          bottom: "16px",
-          right: "16px",
-          background: "rgba(0,0,0,0.6)",
-          borderRadius: "4px",
-          padding: "4px 10px",
-          fontSize: "12px",
-          fontWeight: 600,
-          color: tokens.colors.white,
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          zIndex: 2,
-        }}>1:28</div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        >
+          <source src="/Unlocking LinkedIn_ Strategies for B2B Success and Lead Generation.mp4" type="video/mp4" />
+        </video>
       </div>
       {/* Video info bar */}
       <div style={{
@@ -224,7 +187,7 @@ function VideoCard() {
           fontFamily: "'Plus Jakarta Sans', sans-serif",
         }}>See how we scale your LinkedIn in under 2 minutes</div>
       </div>
-    </a>
+    </div>
   );
 }
 /* --- Main Section --- */
