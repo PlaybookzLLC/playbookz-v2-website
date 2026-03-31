@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import DemoModal from "./DemoModal";
 
 export default function Footer() {
   const [showDemoModal, setShowDemoModal] = useState(false);
+  const [showTerms, setShowTerms] = useState(false);
   const tokens = {
     colors: {
       primary: "#15141A",
@@ -96,7 +98,7 @@ export default function Footer() {
                 marginBottom: "16px",
               }}>Legal</div>
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                <a href="#" className="footer-link" style={linkStyle}>Terms of Service</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); setShowTerms(true); }} className="footer-link" style={linkStyle}>Terms of Service</a>
                 <a href="#" className="footer-link" style={linkStyle}>Privacy Policy</a>
               </div>
             </div>
@@ -119,6 +121,57 @@ export default function Footer() {
         </div>
       </div>
       {showDemoModal && <DemoModal onClose={() => setShowDemoModal(false)} />}
+      {showTerms && createPortal(
+        <div
+          onClick={() => setShowTerms(false)}
+          style={{
+            position: "fixed", inset: 0, zIndex: 9999,
+            background: "rgba(0,0,0,0.6)", backdropFilter: "blur(4px)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "24px",
+          }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: "#fff", borderRadius: "16px",
+              width: "90%", maxWidth: "680px", maxHeight: "85vh",
+              overflow: "auto", position: "relative",
+              padding: "40px",
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              color: "#15141A",
+            }}
+          >
+            <button
+              onClick={() => setShowTerms(false)}
+              style={{
+                position: "absolute", top: "16px", right: "16px",
+                background: "none", border: "none", cursor: "pointer",
+                fontSize: "24px", color: "#6B6B6F", lineHeight: 1,
+              }}
+            >&times;</button>
+            <h2 style={{ fontSize: "24px", fontWeight: 800, margin: "0 0 4px 0" }}>Terms of Service</h2>
+            <p style={{ fontSize: "13px", color: "#6B6B6F", margin: "0 0 24px 0" }}>Last updated: March 31, 2026</p>
+            {[
+              { title: "1. Overview", body: "These Terms of Service govern your use of the Playbookz website (playbookz.com). By accessing or using this site, you agree to be bound by these terms." },
+              { title: "2. Services", body: "Playbookz provides LinkedIn personal branding services. Information on this website is for general informational purposes and does not constitute a binding offer. All service engagements are governed by separate client agreements." },
+              { title: "3. No Guarantees of Results", body: "While we share real client results and case studies on this site, past performance does not guarantee future results. Individual outcomes vary based on factors including industry, audience, content, and engagement." },
+              { title: "4. Intellectual Property", body: "All content on this website, including text, graphics, logos, and design, is the property of Playbookz and may not be reproduced, distributed, or used without written permission." },
+              { title: "5. User Conduct", body: "You agree not to misuse this website, attempt to gain unauthorized access to any part of the site, or use the site for any unlawful purpose." },
+              { title: "6. Third-Party Links", body: "This site may contain links to third-party websites. Playbookz is not responsible for the content or practices of any linked sites." },
+              { title: "7. Limitation of Liability", body: "Playbookz is not liable for any indirect, incidental, or consequential damages arising from your use of this website." },
+              { title: "8. Changes to Terms", body: "We reserve the right to update these terms at any time. Continued use of the site after changes constitutes acceptance of the revised terms." },
+              { title: "9. Contact", body: "Playbookz, 611 South DuPont Highway, Dover, DE 19901" },
+            ].map((section, i) => (
+              <div key={i} style={{ marginBottom: "20px" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: 700, margin: "0 0 6px 0" }}>{section.title}</h3>
+                <p style={{ fontSize: "14px", lineHeight: 1.6, color: "#6B6B6F", margin: 0 }}>{section.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>,
+        document.body
+      )}
     </footer>
   );
 }
