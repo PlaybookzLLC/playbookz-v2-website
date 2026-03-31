@@ -4,15 +4,15 @@ import { tokens } from "../design-system/tokens";
 const caseStudies = [
   {
     id: 1,
-    title: "How We Scaled a Founder's LinkedIn to 400k+ Impressions/Month",
+    title: "How a Community Founder Hit 144k Impressions by Breaking Every LinkedIn Rule",
     description:
-      "A B2B SaaS founder went from 2k impressions to 400k/month in under 6 months with our content engine and ghostwriting system.",
-    stat: "400k",
-    statLabel: "monthly reach",
-    category: "B2B SaaS",
+      "A seven-figure community founder broke conventional LinkedIn rules to develop an authentic voice that drove 40k+ views per post and real pipeline.",
+    stat: "144k",
+    statLabel: "impressions",
+    category: "Community",
     screenshot: "/case-study-1.png",
     fullContent:
-      "Starting from a near-zero presence on LinkedIn, we built a content strategy around thought leadership in the DevOps space. By combining a consistent posting cadence with engagement pods and strategic commenting, we grew this founder's reach from 2,000 impressions per month to over 400,000 — generating 120+ inbound demo requests in the process.",
+      "This founder ran a seven-figure community with a highly specialized, sophisticated audience. The typical LinkedIn playbook didn't just fall flat for him, it was actively counterproductive. The standard formats and tactics felt off-brand and turned his audience away.\n\nWe spent real time developing a voice that was authentic to who he actually was, and what we landed on broke most of the conventional LinkedIn rules. No listicles, no engagement bait, none of the usual plays.\n\nIt worked. Individual posts were reaching north of 40,000 views and generating real pipeline for the community. It was one of the clearest examples we've seen of how getting the voice right matters more than following the formula.\n\nThe Results:\n\n144,417 impressions — +1,124% vs. previous period\n2,857 followers — from near zero\nNew member pipeline — content drove qualified interest into the community",
   },
   {
     id: 2,
