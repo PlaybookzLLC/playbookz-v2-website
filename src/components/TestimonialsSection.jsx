@@ -297,7 +297,7 @@ function VideoCard({ onPlay }) {
           lineHeight: 1.3,
           letterSpacing: "-0.01em",
           marginBottom: "12px",
-        }}>&ldquo;The ROI has been incredible — we&rsquo;re getting inbound leads every week now.&rdquo;</div>
+        }}>&ldquo;They got us thousands of leads, and we signed a $7b company.&rdquo;</div>
         <div style={{
           display: "flex",
           alignItems: "center",
@@ -315,10 +315,10 @@ function VideoCard({ onPlay }) {
             fontSize: "14px",
             fontWeight: 700,
             color: tokens.colors.accent,
-          }}>JR</div>
+          }}>EC</div>
           <div>
-            <div style={{ fontSize: "14px", fontWeight: 600, color: tokens.colors.white }}>James R.</div>
-            <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>CEO, SaaS Company</div>
+            <div style={{ fontSize: "14px", fontWeight: 600, color: tokens.colors.white }}>Eric Carrell</div>
+            <div style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>CEO, dofollow.com</div>
           </div>
         </div>
       </div>
