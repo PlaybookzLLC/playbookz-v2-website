@@ -70,7 +70,7 @@ const caseStudies = [
     stat: "6,000+",
     statLabel: "leads",
     category: "Agency",
-    screenshot: "/lead-mag-gif.gif",
+    screenshot: "/lead mag gif.gif",
     fullContent:
       "dofollow.com is a vertical agency that came to us looking to use LinkedIn as a real pipeline channel, not just a brand awareness play.\n\nWe developed a style that leaned heavily on driving measurable business outcomes. Their sales team integrated closely with us, collaborating on campaign launches so they could follow up on conversations while the content was still warm. That coordination between content and sales made a huge difference.\n\nThe results speak for themselves. They opened doors with companies like Adobe, Squarespace, Zillow, and Wix, and signed Experian, a $7 billion company, with LinkedIn playing a direct role in that deal.\n\nThe Results:\n\n500,000+ impressions — in the last 12 months\n6,000+ leads — generated through LinkedIn content\n$500k+ in new contract revenue — including enterprise deals like Experian",
   },
