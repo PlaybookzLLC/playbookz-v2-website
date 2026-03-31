@@ -28,15 +28,15 @@ const caseStudies = [
   },
   {
     id: 3,
-    title: "From Zero to 50k Reach: A B2B Services Firm's LinkedIn Playbook",
+    title: "How a Vertical SaaS Founder Built 15k Followers and 2,500+ MQLs from Scratch",
     description:
-      "A boutique consulting firm's managing partner built a personal brand that now drives 60% of their new business pipeline.",
-    stat: "50k",
-    statLabel: "monthly reach",
-    category: "B2B Services",
+      "A vertical SaaS company with no LinkedIn presence built a following around the personal brand and drove 2,500+ MQLs through content.",
+    stat: "15k",
+    statLabel: "followers",
+    category: "Vertical SaaS",
     screenshot: "/case-study-3.png",
     fullContent:
-      "This managing partner had never posted on LinkedIn before working with us. We developed a content calendar focused on client transformation stories, industry hot takes, and frameworks. Within 4 months they were averaging 50k impressions per month and attributing the majority of new inbound leads to their LinkedIn presence.",
+      "This was a vertical SaaS company with basically no LinkedIn presence. We ran two content tracks at the same time: one speaking directly to their customers about the pain points the product solved, and the other telling a building-in-public founder story that drove broader visibility.\n\nThe customer-facing content created specific, high-intent engagement and fed real pipeline. The founder-led content built a following around the personal brand. They also ran a lead magnet roughly once a quarter, which they produced and we helped promote through the audience we were growing.\n\nThe Results:\n\n124,150 impressions — from zero prior presence\n15,145 followers — from near zero\n2,500+ MQLs — prospects entering their funnel through content\nStronger category ownership — customer education drove awareness and pipeline",
   },
   {
     id: 4,
