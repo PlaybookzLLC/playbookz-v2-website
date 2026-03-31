@@ -16,15 +16,15 @@ const caseStudies = [
   },
   {
     id: 2,
-    title: "121% Follower Growth for a Vertical SaaS CEO in 90 Days",
+    title: "How a Niche CRM Company Hit 421k Impressions by Treating LinkedIn as Part of the Full Marketing Machine",
     description:
-      "We took a construction-tech CEO from 1,200 followers to 2,650+ in just 3 months, establishing them as the go-to voice in their niche.",
-    stat: "121%",
-    statLabel: "follower growth",
-    category: "Vertical SaaS",
+      "A highly specific CRM product integrated LinkedIn deeply into their full marketing funnel, outperforming nearly every other client we've worked with.",
+    stat: "421k",
+    statLabel: "impressions",
+    category: "CRM",
     screenshot: "/case-study-2.png",
     fullContent:
-      "The construction-tech space is niche — but that's exactly where personal branding shines. We created a mix of contrarian takes, data-driven posts, and behind-the-scenes content that resonated with builders and GCs. The CEO's follower count more than doubled, and three enterprise deals closed directly from LinkedIn conversations.",
+      "This was a highly specific CRM product built for a very specific industry. The tone had to be precise, and we had to be deeply integrated with their existing marketing team rather than operating as a standalone channel.\n\nLinkedIn wasn't just a top-of-funnel play here. It was woven into their broader marketing efforts, which meant we had to be more sophisticated in how we operated and more custom in how we plugged into their existing infrastructure.\n\nTheir content outperformed nearly every other client we've worked with, and a big reason for that was their willingness to lean into what was working. They treated LinkedIn like a performance channel, doubling down on the tactics and formats that drove results instead of just posting for the sake of it.\n\nThe Results:\n\n421,625 impressions — +329% vs. previous period\nMeasurable pipeline influence — LinkedIn integrated across their full marketing funnel",
   },
   {
     id: 3,
