@@ -52,15 +52,15 @@ const caseStudies = [
   },
   {
     id: 5,
-    title: "How a Staffing Agency Owner 3x'd Their Pipeline via LinkedIn",
+    title: "How an Influencer Agency Generated 151k Reach and Shortened Enterprise Sales Cycles",
     description:
-      "A staffing agency owner leveraged personal branding to triple their qualified leads in 5 months.",
-    stat: "3x",
-    statLabel: "pipeline growth",
-    category: "B2B Services",
+      "This founder ran one of the top influencer agencies in the country, working with major household brands and A-list talent. We leaned into his personal POV and made his people a core part of the content strategy.",
+    stat: "151k",
+    statLabel: "impressions",
+    category: "Agency",
     screenshot: "/case-study-5.png",
     fullContent:
-      "Staffing is a relationship business — and LinkedIn is where those relationships start. We helped this agency owner share hiring insights, market data, and client success stories consistently. Their qualified pipeline tripled within 5 months, and their cost per lead dropped by over 60% compared to paid advertising.",
+      "This founder ran one of the top influencer agencies in the country, working with major household brands and A-list talent.\n\nHe had a very distinct voice: honest, vulnerable, no corporate polish. That gave us something real to build around. We leaned into his personal POV, paired it with proprietary industry data his team was already sitting on, and made his people a core part of the content strategy.\n\nFor an agency where every deal was relationship-driven, the content helped build familiarity and trust with prospects before sales conversations even started.\n\nThe Results:\n\n151,918 impressions — +1,124% vs. previous period\n2,807 engagements — +100% vs. previous period\n2,401 followers — from near zero\n772 profile views — +100% vs. previous period",
   },
 ];
 
