@@ -258,7 +258,11 @@ function CaseStudyModal({ study, onClose }) {
             }}
           >
             {study.fullContent.split("\n\n").map((para, i) => (
-              <p key={i} style={{ margin: "0 0 16px 0" }}>{para}</p>
+              <p key={i} style={{ margin: "0 0 16px 0" }}>
+                {para.split("\n").map((line, j, arr) => (
+                  <span key={j}>{line}{j < arr.length - 1 && <br />}</span>
+                ))}
+              </p>
             ))}
           </div>
         </div>
