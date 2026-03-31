@@ -248,7 +248,7 @@ function CaseStudyModal({ study, onClose }) {
           >
             {study.title}
           </h2>
-          <p
+          <div
             style={{
               fontSize: tokens.typography.sizes.bodyMD.size,
               lineHeight: tokens.typography.sizes.bodyMD.lineHeight,
@@ -257,8 +257,10 @@ function CaseStudyModal({ study, onClose }) {
               fontFamily: tokens.typography.bodyFont,
             }}
           >
-            {study.fullContent}
-          </p>
+            {study.fullContent.split("\n\n").map((para, i) => (
+              <p key={i} style={{ margin: "0 0 16px 0" }}>{para}</p>
+            ))}
+          </div>
         </div>
       </div>
     </div>
