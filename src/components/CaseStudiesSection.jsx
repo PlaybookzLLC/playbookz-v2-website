@@ -257,13 +257,46 @@ function CaseStudyModal({ study, onClose }) {
               fontFamily: tokens.typography.bodyFont,
             }}
           >
-            {study.fullContent.split("\n\n").map((para, i) => (
-              <p key={i} style={{ margin: "0 0 16px 0" }}>
-                {para.split("\n").map((line, j, arr) => (
-                  <span key={j}>{line}{j < arr.length - 1 && <br />}</span>
-                ))}
-              </p>
-            ))}
+            {study.fullContent.split("\n\n").map((para, i) => {
+              // Detect "The Results:" header
+              if (para.trim() === "The Results:") {
+                return (
+                  <h3 key={i} style={{
+                    fontSize: "18px", fontWeight: 700, color: tokens.colors.textOnLight,
+                    margin: "24px 0 8px 0", fontFamily: tokens.typography.headingFont,
+                  }}>The Results</h3>
+                );
+              }
+              // Detect results block (lines with " — ")
+              const lines = para.split("\n");
+              if (lines.length > 1 && lines.every(l => l.includes(" — "))) {
+                return (
+                  <div key={i} style={{ margin: "0 0 16px 0" }}>
+                    {lines.map((line, j) => {
+                      const [metric, change] = line.split(" — ");
+                      return (
+                        <div key={j} style={{
+                          display: "flex", justifyContent: "space-between", alignItems: "center",
+                          padding: "14px 0",
+                          borderTop: `1px solid ${tokens.colors.grayLight}`,
+                        }}>
+                          <span style={{ fontSize: "14px", fontWeight: 600, color: tokens.colors.textOnLight, fontFamily: tokens.typography.bodyFont }}>{metric}</span>
+                          <span style={{ fontSize: "14px", fontWeight: 500, color: "#64748B", fontFamily: tokens.typography.bodyFont }}>{change}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              }
+              // Regular paragraph
+              return (
+                <p key={i} style={{ margin: "0 0 16px 0" }}>
+                  {lines.map((line, j, arr) => (
+                    <span key={j}>{line}{j < arr.length - 1 && <br />}</span>
+                  ))}
+                </p>
+              );
+            })}
           </div>
         </div>
       </div>
