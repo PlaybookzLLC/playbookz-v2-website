@@ -418,7 +418,7 @@ const testimonials = [
   },
   {
     stars: 5,
-    text: "Playbookz completely freed up my calendar. I used to spend hours on content — now I just approve drafts and watch the engagement roll in.",
+    text: "Playbookz completely freed up my calendar. I used to spend hours on content, now I just approve drafts and watch the engagement roll in.",
     name: "David M.",
     role: "VP Sales, B2B SaaS",
     time: "3 weeks ago",
@@ -434,7 +434,7 @@ const testimonials = [
   },
   {
     stars: 5,
-    text: "Best investment we've made this year. Our CEO's LinkedIn went from ghost town to generating 3–4 warm leads a week.",
+    text: "Best investment we've made this year. Our CEO's LinkedIn went from ghost town to generating 3-4 warm leads a week.",
     name: "Mark L.",
     role: "Head of Growth, FinTech",
     time: "1 month ago",
