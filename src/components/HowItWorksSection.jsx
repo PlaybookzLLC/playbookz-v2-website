@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
 const tokens = {
   colors: {
     primary: "#15141A",
@@ -230,8 +231,8 @@ function VideoCard() {
         </div>
       </div>
 
-      {/* Video Modal */}
-      {showModal && (
+      {/* Video Modal — portaled to body */}
+      {showModal && createPortal(
         <div
           onClick={() => setShowModal(false)}
           style={{
@@ -239,7 +240,6 @@ function VideoCard() {
             background: "rgba(0,0,0,0.8)", backdropFilter: "blur(4px)",
             display: "flex", alignItems: "center", justifyContent: "center",
             padding: "24px",
-            animation: "fadeInUp 0.2s ease both",
           }}
         >
           <div
@@ -269,7 +269,8 @@ function VideoCard() {
               <source src={VIDEO_SRC} type="video/mp4" />
             </video>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
