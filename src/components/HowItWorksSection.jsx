@@ -245,7 +245,7 @@ function VideoCard() {
           <div
             onClick={(e) => e.stopPropagation()}
             style={{
-              width: "90%", maxWidth: "900px",
+              width: "94%", maxWidth: "1100px",
               borderRadius: "12px", overflow: "hidden",
               position: "relative",
               background: "#000",
