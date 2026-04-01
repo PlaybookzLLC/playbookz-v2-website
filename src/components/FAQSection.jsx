@@ -16,15 +16,15 @@ const tokens = {
 const faqs = [
   {
     q: "How does the onboarding process work?",
-    a: "A couple of different things happen during onboarding.\n\nFirst and most importantly, we'll do a deep dive into your business so that we can really understand who you are, who your customers are, and how you help them solve problems. We'll download as much information as we can from your brain and we'll use that as a jumping off point to do an extensive round of our own research into your industry, market, customers, and other influencers in the space.\n\nThen we'll set up a shared workspace and a shared Slack channel, where we can collaborate and where you can invite any other team members you like.\n\nFinally we'll cover some administrative stuff like connecting your LinkedIn account, getting permissions, etc.\n\nOur onboarding is pretty detailed but we've found that it makes the rest of a campaign much smoother.",
+    a: "A couple of different things happen during onboarding.\n\nFirst and most importantly, we'll do a deep dive into your business so that we can really understand who you are, who your customers are, and how you help them solve problems. We'll download as much information as we can from your brain and we'll use that as a jumping off point to do an extensive round of our own research into your industry, market, customers, and other influencers in the space.\n\nThen, we'll set up a shared workspace and a shared Slack channel, where we can collaborate and where you can invite any other team members you like.\n\nFinally, we'll cover some administrative stuff like connecting your LinkedIn account, getting permissions, etc.\n\nOur onboarding is pretty detailed, but we've found that it makes the rest of a campaign much smoother.",
   },
   {
     q: "Who writes the content?",
-    a: "You'll get an extremely experienced (we like to think top 1%) editor whose job it is to become an expert in your business and craft your content.\n\nWe empower them with AI for research, applying viral structures, outlining, and design.\n\nBut you'll have 1:1 access to a senior editor who will ultimately craft, edit, and revise your content.",
+    a: "You'll get an extremely experienced (we like to think top 1%) editor whose job it is to become an expert in your business and craft your content.\n\nWe empower them with AI for reserach, applying viral structures, outlining, drafting, and design.\n\nBut you'll have 1:1 access to a senior editor who will ultimately craft, edit, and revise your content.",
   },
   {
     q: "Do you use AI?",
-    a: "Our process is a human + AI process. So yes.\n\nWe do not think AI alone can create content good enough to run a successful LinkedIn campaign, but we strongly believe in empowering exceptional human editors with AI so that they can create even better content.\n\nWe use AI for research, understanding viral structures, applying viral structures, outlining, monitoring other influencers, etc.\n\nOur editors apply craft, voice, creativity, and a deep understanding of your business and who you are as a person to the content.\n\nBasically, we use AI to give great human editors superpowers.",
+    a: "Our process is a human + AI process. So yes.\n\nWe do not think AI alone can create content good enough to run a successful LinkedIn campaign, but we strongly belive in empowering exceptional human editors with AI so that they can create even better content.\n\nWe use AI for research, understanding viral structures, applying viral structures, outlining, monitoring other influencers, etc.\n\nOur editors apply craft, voice, creativity, and a deep understanding of your business and who you are as a person to the content.\n\nBasically, we use AI to give great human editors superpowers.",
   },
   {
     q: "How many posts do I get per week?",
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: "Do I need to be involved in the content creation?",
-    a: "Not if you don't want to be. This is why we invest so much in the onboarding, actually.\n\nOne of the things that sets us apart from our competitors is our willingness and ability to become a reasonable expert in your business as quickly as possible.\n\nOf course, there's always a bit of a learning curve. But we're extremely comfortable crafting content with confidence with minimal involvement.\n\nIf you do want to be involved, we have dedicated places for you to drop notes, research, voice memos, Loom videos, etc. Plus, we'll set up a shared Slack channel and shared workspace for us to collab in.",
+    a: "Not if you don't want to be. This is why we invest so much in the onboarding, actually.\n\nOne of the things That sets us apart from our competitors is our willingness and ability to become a reasonable expert in your business as quickly as possible.\n\nOf course, there's always a bit of a learning curve. But we're extremely comfortable crafting content with confidence with minimal involvement.\n\nWe have plenty of clients who rarely even talk to us, ha.\n\nIf you do want to be involved, we have dedicated places for you to drop notes, research, voice memos, Loom videos, etc. Plus, we'll set up a shared Slack channel and shared workspace for us to collab in.",
   },
   {
     q: "What's included in the Scale tier that isn't in Growth?",
@@ -40,11 +40,11 @@ const faqs = [
   },
   {
     q: "Do you really use your own funds to amplify my content?",
-    a: "Yes. We strongly believe in stacking paid reach on top of organic reach. They feed each other.\n\nPlus, paid reach on LinkedIn is generally extremely good because, by nature, it's a B2B platform, and you can target firmographically.\n\nIt's one of the best ways to make sure your content gets seen by exactly the right people.\n\nOrganic reach is still great, of course, but combining the two is extremely powerful.\n\nIt's so powerful in fact that we're willing to pay for it ourselves so that you don't miss out (we found that it's tough for most people to spend their own funds on ads without having tested it first).\n\nFor most of our clients, the organic:paid ratio is about 50:50, but it can swing 10%-20% either way.\n\nAs for how we're able to do it, it's pretty boring: We ran a huge amount of experience and figured out a good way to get good, targeted reach really efficiently.",
+    a: "Yes. We strongly believe in stacking paid reach on top of organic reach. They feed each other.\n\nPlus, paid reach on LinkedIn is generally extremely good because, by nature, it's a B2B platform, and you can target firmographically.\n\nIt's one of the best ways to make sure your content gets seen by exactly the right people.\n\nOrganic reach is still great, of course, but combinging the two is extremely powerful.\n\nIt's so powerful in fact that we're willing to pay for it ourselves so that you don't miss out (we've found that it's tough for most people to spend their own funds on ads without having tested it first).\n\nFor most of our clients, the organic:paid ratio is about 50:50, but it can swing 10%-30% either way.\n\nAs for how we're able to do it, it's pretty boring: we ran a huge amount of experiments and figured out a good way to get quality, targeted reach really efficiently.",
   },
   {
     q: "What are the reach guarantees?",
-    a: "We guarantee 20,000 reach in the first 30 days of posting or we will refund your money.\n\nAnd we guarantee 100,000 reach in the first six months or we will work for free until we hit it.",
+    a: "We guarantee 20,000 reach in the first 30 days of posting or we'll refund your money.\n\nAnd we guarantee 100,000 reach in the first six months or we will work for free until we hit it.",
   },
   {
     q: "Are there long-term contracts?",
