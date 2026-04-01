@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DemoModal from "./DemoModal";
 const tokens = {
   colors: {
     primary: "#15141A",
@@ -135,7 +136,8 @@ function FAQRow({ question, answer, isOpen, onClick }) {
 }
 /* ─── Main Section ─── */
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
+  const [showDemoModal, setShowDemoModal] = useState(false);
   return (
     <div id="faq" style={{
       fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -189,7 +191,21 @@ export default function FAQSection() {
             />
           ))}
         </div>
+        {/* CTA Button */}
+        <div className="faq-fade-2" style={{ textAlign: "center", marginTop: "48px" }}>
+          <button
+            onClick={() => setShowDemoModal(true)}
+            style={{
+              background: tokens.colors.accent, color: tokens.colors.textOnAccent,
+              border: "none", borderRadius: "999px",
+              padding: "16px 40px", fontSize: "16px", fontWeight: 700,
+              fontFamily: "'Plus Jakarta Sans', sans-serif", cursor: "pointer",
+              transition: "all 0.15s ease",
+            }}
+          >Get a Demo</button>
+        </div>
       </div>
+      {showDemoModal && <DemoModal onClose={() => setShowDemoModal(false)} />}
     </div>
   );
 }
